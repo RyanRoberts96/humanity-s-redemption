@@ -12,7 +12,7 @@ public class MouseSelect : MonoBehaviour
         {
             // Create a ray from the mouse position in 2D
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction); // Use Physics2D.Raycast
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction); 
 
             // Check if the ray hits something
             if (hit.collider != null)
@@ -41,7 +41,7 @@ public class MouseSelect : MonoBehaviour
         }
 
         selectedUnit = unit;
-        SpriteRenderer renderer = selectedUnit.GetComponent<SpriteRenderer>(); // Use SpriteRenderer for 2D
+        SpriteRenderer renderer = selectedUnit.GetComponent<SpriteRenderer>();
 
         if (renderer != null)
         {
@@ -58,7 +58,7 @@ public class MouseSelect : MonoBehaviour
     {
         if (selectedUnit != null)
         {
-            SpriteRenderer renderer = selectedUnit.GetComponent<SpriteRenderer>(); // Use SpriteRenderer for 2D
+            SpriteRenderer renderer = selectedUnit.GetComponent<SpriteRenderer>();
             if (renderer != null)
             {
                 renderer.color = Color.white; // Reset to default color
