@@ -11,6 +11,7 @@ public class MouseSelect : MonoBehaviour
     {
         HandleSelection();
         HandleMovement();
+        HandleDeselection();
     }
 
     void HandleSelection()
@@ -74,6 +75,21 @@ public class MouseSelect : MonoBehaviour
         }
 
         selectedUnit.SetIgnoreCollisions(true);
+    }
+
+    void HandleDeselection()
+    {
+        // Deselect unit when clicking anywhere that is not on a unit or resource
+        if (selectedUnit != null && Input.GetMouseButtonDown(0)) // Left-click to deselect
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity); // Check if hit on unit or resource layer
+
+            if (hit.collider == null) // If hit nothing on the layers, deselect the unit
+            {
+                DeselectUnit();
+            }
+        }
     }
 
     void DeselectUnit()
