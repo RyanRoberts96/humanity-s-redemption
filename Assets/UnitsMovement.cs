@@ -63,22 +63,20 @@ public class UnitsMovement : MonoBehaviour
         }
     public void SetIgnoreCollisions(bool ignore)
     {
-        // Find all colliders with the tag "Unit" and ignore or enable collisions with them
-        GameObject[] units = GameObject.FindGameObjectsWithTag("Unit");
+        // Get all colliders in the scene, but only those on the "Unit" layer.
+        int unitLayer = LayerMask.NameToLayer("Unit");  // Get the "Unit" layer index
+        Collider2D[] allUnits = Physics2D.OverlapAreaAll(Vector2.zero, new Vector2(Screen.width, Screen.height), unitLayer);
 
-        foreach (GameObject otherUnit in units)
+        foreach (Collider2D otherCollider in allUnits)
         {
-            // Ignore collision between this unit and all other units
-            if (otherUnit != gameObject)
+            // Ignore collision between this unit and all other units on the "Unit" layer
+            if (otherCollider.gameObject != gameObject)
             {
-                Collider2D otherCollider = otherUnit.GetComponent<Collider2D>();
-                if (otherCollider != null)
-                {
-                    Physics2D.IgnoreCollision(unitCollider, otherCollider, ignore);
-                }
+                Physics2D.IgnoreCollision(unitCollider, otherCollider, ignore);
             }
         }
     }
+
 }
 
 

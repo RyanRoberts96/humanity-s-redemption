@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4214930185177627012}
   m_Layer: 3
   m_Name: 01_Harvester
-  m_TagString: GameController
+  m_TagString: Harvester
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
