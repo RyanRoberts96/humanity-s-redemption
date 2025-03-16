@@ -63,9 +63,10 @@ public class UnitsMovement : MonoBehaviour
         }
     public void SetIgnoreCollisions(bool ignore)
     {
-        // Get all colliders in the scene, but only those on the "Unit" layer.
-        int unitLayer = LayerMask.NameToLayer("Unit");  // Get the "Unit" layer index
-        Collider2D[] allUnits = Physics2D.OverlapAreaAll(Vector2.zero, new Vector2(Screen.width, Screen.height), unitLayer);
+        
+
+        // Check for all colliders near this unit
+        Collider2D[] allUnits = Physics2D.OverlapCircleAll(transform.position, 1f, LayerMask.GetMask("Unit"));
 
         foreach (Collider2D otherCollider in allUnits)
         {
@@ -76,6 +77,7 @@ public class UnitsMovement : MonoBehaviour
             }
         }
     }
+
 
 }
 
