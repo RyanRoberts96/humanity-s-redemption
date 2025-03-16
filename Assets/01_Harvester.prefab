@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6834449180011462522}
   - component: {fileID: 6590299558681213446}
   - component: {fileID: 4214930185177627012}
-  m_Layer: 0
-  m_Name: scifiUnit_11
-  m_TagString: Unit
+  m_Layer: 3
+  m_Name: 01_Harvester
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

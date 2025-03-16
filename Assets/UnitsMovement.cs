@@ -24,7 +24,7 @@ public class UnitsMovement : MonoBehaviour
 
     public void MoveTo(Vector2 position)
     {
-        // Check if the path is clear before starting to move
+        //Check if the path is clear before starting to move
         if (IsPathClear(position))
         {
             targetPosition = position;
@@ -52,13 +52,33 @@ public class UnitsMovement : MonoBehaviour
     }
 
     private void MoveToTarget()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-
-        // If the unit reaches the target position, stop moving
-        if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
         {
-            isMoving = false;
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+            // If the unit reaches the target position, stop moving
+            if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
+            {
+                isMoving = false;
+            }
+        }
+    public void SetIgnoreCollisions(bool ignore)
+    {
+        // Find all colliders with the tag "Unit" and ignore or enable collisions with them
+        GameObject[] units = GameObject.FindGameObjectsWithTag("Unit");
+
+        foreach (GameObject otherUnit in units)
+        {
+            // Ignore collision between this unit and all other units
+            if (otherUnit != gameObject)
+            {
+                Collider2D otherCollider = otherUnit.GetComponent<Collider2D>();
+                if (otherCollider != null)
+                {
+                    Physics2D.IgnoreCollision(unitCollider, otherCollider, ignore);
+                }
+            }
         }
     }
 }
+
+

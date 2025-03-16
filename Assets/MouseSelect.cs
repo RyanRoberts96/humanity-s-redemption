@@ -5,6 +5,7 @@ using UnityEngine;
 public class MouseSelect : MonoBehaviour
 {
     private UnitsMovement selectedUnit;
+    public LayerMask unitLayer;
 
     void Update()
     {
@@ -17,7 +18,8 @@ public class MouseSelect : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) // Left-click to select
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, unitLayer); // Use unitLayer
+
 
             if (hit.collider != null)
             {
@@ -39,7 +41,8 @@ public class MouseSelect : MonoBehaviour
         if (selectedUnit != null && Input.GetMouseButtonDown(1)) // Right-click to move
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, unitLayer); // Use unitLayer
+
 
             if (hit.collider == null) // Ensure we are clicking on an empty area
             {
@@ -62,6 +65,15 @@ public class MouseSelect : MonoBehaviour
         {
             renderer.color = Color.green; // Change color to indicate selection
         }
+
+        // Enable the collider when the unit is selected
+        Collider2D collider = selectedUnit.GetComponent<Collider2D>();
+        if (collider != null)
+        {
+            collider.enabled = true;
+        }
+
+        selectedUnit.SetIgnoreCollisions(true);
     }
 
     void DeselectUnit()
@@ -73,6 +85,9 @@ public class MouseSelect : MonoBehaviour
             {
                 renderer.color = Color.white; // Reset to default color
             }
+
+            selectedUnit.SetIgnoreCollisions(false);
+
             selectedUnit = null;
         }
     }
