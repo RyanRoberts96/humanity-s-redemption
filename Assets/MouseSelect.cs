@@ -4,26 +4,27 @@ using UnityEngine;
 
 public class MouseSelect : MonoBehaviour
 {
-    private GameObject selectedUnit;
+    private UnitsMovement selectedUnit;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Left mouse button
-        {
-            // Create a ray from the mouse position in 2D
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction); 
+        HandleSelection();
+        HandleMovement();
+    }
 
-            // Check if the ray hits something
+    void HandleSelection()
+    {
+        if (Input.GetMouseButtonDown(0)) // Left-click to select
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
             if (hit.collider != null)
             {
-                // Log the object name that was hit
-                Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
-
-                // Check if the object has the "Unit" tag
-                if (hit.collider.CompareTag("Unit"))
+                UnitsMovement unit = hit.collider.GetComponent<UnitsMovement>();
+                if (unit != null)
                 {
-                    SelectUnit(hit.collider.gameObject);
+                    SelectUnit(unit);
                 }
                 else
                 {
@@ -33,7 +34,21 @@ public class MouseSelect : MonoBehaviour
         }
     }
 
-    void SelectUnit(GameObject unit)
+    void HandleMovement()
+    {
+        if (selectedUnit != null && Input.GetMouseButtonDown(1)) // Right-click to move
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
+            if (hit.collider == null) // Ensure we are clicking on an empty area
+            {
+                selectedUnit.MoveTo(ray.origin);
+            }
+        }
+    }
+
+    void SelectUnit(UnitsMovement unit)
     {
         if (selectedUnit != null)
         {
@@ -46,11 +61,6 @@ public class MouseSelect : MonoBehaviour
         if (renderer != null)
         {
             renderer.color = Color.green; // Change color to indicate selection
-        }
-
-        if (selectedUnit != null)
-        {
-            Debug.Log("A unit is selected: " + selectedUnit.name);
         }
     }
 
