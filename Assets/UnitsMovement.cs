@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitsMovement : MonoBehaviour
 {
@@ -14,9 +15,17 @@ public class UnitsMovement : MonoBehaviour
     public int maxCapacity = 10;  // Max resources the harvester can carry
     private int currentCapacity = 0;  // Current amount of resources harvested
 
+    public Slider capacitySlider;
+
     void Start()
     {
         unitCollider = GetComponent<Collider2D>();
+        // Set the slider max value based on the harvester's max capacity
+        if (capacitySlider != null)
+        {
+            capacitySlider.maxValue = maxCapacity;
+            capacitySlider.value = currentCapacity;  // Initialize the slider value
+        }
     }
 
     void Update()
@@ -24,6 +33,11 @@ public class UnitsMovement : MonoBehaviour
         if (isMoving)
         {
             MoveToTarget();
+        }
+        // Update the capacity slider value every frame
+        if (capacitySlider != null)
+        {
+            capacitySlider.value = currentCapacity;  // Update the slider based on current capacity
         }
     }
 
