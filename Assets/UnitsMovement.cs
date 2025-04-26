@@ -98,6 +98,14 @@ public class UnitsMovement : MonoBehaviour
     // Move the unit to the target position
     private void MoveToTarget()
     {
+
+        Vector2 direction = targetPosition - (Vector2)transform.position;
+
+        if (direction.sqrMagnitude > 0.1f)
+        {
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
         if (Vector2.Distance(transform.position, targetPosition) < 0.1f)

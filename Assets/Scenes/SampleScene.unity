@@ -260,6 +260,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 516473135614916709, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153641881441259331, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3078247618432436251, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.52
@@ -300,9 +308,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3335120245203554563, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4193459785052539186, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910206150825278858, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8710891980863800213, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
       propertyPath: m_Name
       value: scifiUnit_11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836416219491022178, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -522,6 +546,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 516473135614916709, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153641881441259331, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3078247618432436251, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.58
@@ -562,9 +594,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3335120245203554563, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4193459785052539186, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910206150825278858, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8710891980863800213, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
       propertyPath: m_Name
       value: scifiUnit_11 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836416219491022178, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
