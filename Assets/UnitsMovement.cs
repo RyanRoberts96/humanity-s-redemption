@@ -180,5 +180,15 @@ public class UnitsMovement : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Harv_Home_Base"))
+        {
+            Debug.Log("Reached home base");
+            GoldManager.Instance.AddGold(currentCapacity);
+            UnloadResources();
+        }
+    }
 }
 
