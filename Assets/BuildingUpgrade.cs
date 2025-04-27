@@ -12,13 +12,19 @@ public class BuildingUpgrade : MonoBehaviour
     [SerializeField] private int maxLevel;
     [SerializeField] private int upgradeCost = 100;
     [SerializeField] private float sizeIncreasePerLevel = 0.1f;
+    [SerializeField] private float upgradeMultiplier = 1.5f;
     [SerializeField] private int incomeIncreasePerLevel = 5;
     [SerializeField] private GameObject panel;
     [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI costText;
 
     [SerializeField] private UnitsMovement harvester;
 
-   
+    private void Start()
+    {
+        UpdateLevelText();
+        UpdateCostText();
+    }
 
     public void upgradeBuilding()
     {
@@ -28,9 +34,11 @@ public class BuildingUpgrade : MonoBehaviour
             return;
         }
 
-        if (GoldManager.Instance.totalGold >= upgradeCost)
+        int currentCost = CalculateUpgradeCost();
+
+        if (GoldManager.Instance.totalGold >= currentCost)
         {
-            GoldManager.Instance.totalGold -= upgradeCost;
+            GoldManager.Instance.totalGold -= currentCost;
 
             currentLevel++;
 
@@ -41,17 +49,43 @@ public class BuildingUpgrade : MonoBehaviour
                 harvester.IncreaseIncome(incomeIncreasePerLevel);
             }
 
-            if (levelText != null)
-            {
-                levelText.text = $"Level: {currentLevel}"; // simpler and faster
-            }
+            UpdateLevelText();
+            UpdateCostText();
 
-            Debug.Log("Building upgraded to level: " + currentLevel + ". Remaining gold is: " + GoldManager.Instance.totalGold);
+            Debug.Log("Building upgraded to level: " + currentCost + ". Remaining gold is: " + GoldManager.Instance.totalGold);
 
         }
         else
         {
             Debug.Log("Not enough gold to upgrade! You need " + upgradeCost + "gold");
+        }
+    }
+
+    private int CalculateUpgradeCost()
+    {
+        return Mathf.RoundToInt(upgradeCost * Mathf.Pow(upgradeMultiplier, currentLevel - 1));
+    }
+
+    private void UpdateLevelText()
+    {
+        if (levelText != null)
+        {
+            levelText.text = "Level: " + currentLevel;
+        }
+    }
+
+    private void UpdateCostText()
+    {
+        if (costText != null)
+        {
+            if (currentLevel < maxLevel)
+            {
+                costText.text = "Upgrade Cost: " + CalculateUpgradeCost();
+            }
+            else
+            {
+                costText.text = "Max Level";
+            }
         }
     }
 }

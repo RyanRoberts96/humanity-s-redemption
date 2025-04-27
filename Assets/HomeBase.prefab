@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7109396062284200973}
   - component: {fileID: 1052304694804556624}
   - component: {fileID: 5078778052756922284}
-  - component: {fileID: -5879206455960712537}
   m_Layer: 0
   m_Name: HomeBase
   m_TagString: HB
@@ -145,24 +144,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
---- !u!114 &-5879206455960712537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2656257090795655990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33fa65fee5dcf4c76909929f57781877, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingObject: {fileID: 2656257090795655990}
-  currentLevel: 1
-  maxLevel: 3
-  upgradeCost: 2
-  sizeIncreasePerLevel: 0.1
-  incomeIncreasePerLevel: 5
-  panel: {fileID: 0}
-  levelText: {fileID: 0}
-  harvester: {fileID: 4214930185177627012, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
