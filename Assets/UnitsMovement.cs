@@ -15,10 +15,15 @@ public class UnitsMovement : MonoBehaviour
     public int maxCapacity = 10;  // Max resources the harvester can carry
     private int currentCapacity = 0;  // Current amount of resources harvested
 
+    [SerializeField] private int baseIncome = 3;
+    private int currentIncome;
+
     public Slider capacitySlider;
 
     void Start()
     {
+        currentIncome = baseIncome;
+
         unitCollider = GetComponent<Collider2D>();
         // Set the slider max value based on the harvester's max capacity
         if (capacitySlider != null)
@@ -186,9 +191,15 @@ public class UnitsMovement : MonoBehaviour
         if (collision.CompareTag("HB"))
         {
             Debug.Log("Reached home base");
-            GoldManager.Instance.AddGold(currentCapacity);
+            GoldManager.Instance.AddGold(currentCapacity * currentIncome);
             UnloadResources();
         }
+    }
+
+    public void IncreaseIncome(int amount)
+    {
+        currentIncome += amount;
+        Debug.Log("Income increased to: " + currentIncome + "gold");
     }
 }
 
