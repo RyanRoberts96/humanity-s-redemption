@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Harvester
+  - Harve_Base
+  - HB
   layers:
   - Default
   - TransparentFX
