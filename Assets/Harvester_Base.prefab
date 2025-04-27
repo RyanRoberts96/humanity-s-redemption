@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 426490538626294095}
   - component: {fileID: 4920653137241214143}
   - component: {fileID: 8686554152466118781}
+  - component: {fileID: 152273506924261893}
   m_Layer: 0
   m_Name: Harvester_Base
   m_TagString: HB
@@ -130,3 +131,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &152273506924261893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8517882007287919225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcfee1f1c1faf4a2e837222ec0a3ca3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 8517882007287919225}

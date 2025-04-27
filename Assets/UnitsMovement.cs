@@ -37,7 +37,7 @@ public class UnitsMovement : MonoBehaviour
         // Update the capacity slider value every frame
         if (capacitySlider != null)
         {
-            capacitySlider.value = currentCapacity;  // Update the slider based on current capacity
+            capacitySlider.value = currentCapacity;
         }
     }
 
