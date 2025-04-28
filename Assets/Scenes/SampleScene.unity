@@ -172,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4214930185177627012, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
       propertyPath: baseIncome
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4214930185177627012, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
       propertyPath: maxCapacity
@@ -350,7 +350,7 @@ MonoBehaviour:
   upgradeCost: 50
   sizeIncreasePerLevel: 0.1
   upgradeMultiplier: 2
-  incomeIncreasePerLevel: 3
+  incomeIncreasePerLevel: 4
   panel: {fileID: 407043210}
   levelText: {fileID: 758346481}
   costText: {fileID: 481454731}
@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Harvester homebase- Return your harvester here to deposti your gold
+  m_text: Harvester homebase- Return your harvester here to deposit your gold
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
