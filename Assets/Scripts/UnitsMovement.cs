@@ -20,6 +20,8 @@ public class UnitsMovement : MonoBehaviour
 
     public Slider capacitySlider;
 
+    private OffScreenIndicator indicatorSystem;
+
     void Start()
     {
         currentIncome = baseIncome;
@@ -30,6 +32,12 @@ public class UnitsMovement : MonoBehaviour
         {
             capacitySlider.maxValue = maxCapacity;
             capacitySlider.value = currentCapacity;  // Initialize the slider value
+        }
+
+        indicatorSystem = FindObjectOfType<OffScreenIndicator>();
+        if (indicatorSystem != null)
+        {
+            indicatorSystem.RegisterUnit(transform);
         }
     }
 
@@ -43,6 +51,13 @@ public class UnitsMovement : MonoBehaviour
         if (capacitySlider != null)
         {
             capacitySlider.value = currentCapacity;
+        }
+    }
+    void OnDestroy()
+    {
+        if (indicatorSystem != null)
+        {
+            indicatorSystem.UnregisterUnit(transform);
         }
     }
 
