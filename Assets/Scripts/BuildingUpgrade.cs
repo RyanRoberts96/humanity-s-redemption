@@ -17,6 +17,8 @@ public class BuildingUpgrade : MonoBehaviour
     [SerializeField] private GameObject panel;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private int startingHealth = 150;
+    [SerializeField] private TextMeshProUGUI startingHealthText;
 
     [SerializeField] private UnitsMovement harvester;
 
@@ -24,6 +26,7 @@ public class BuildingUpgrade : MonoBehaviour
     {
         UpdateLevelText();
         UpdateCostText();
+        UpdateStartingHealthText();
     }
 
     public void upgradeBuilding()
@@ -51,6 +54,7 @@ public class BuildingUpgrade : MonoBehaviour
 
             UpdateLevelText();
             UpdateCostText();
+            UpdateBuildingHealth();
 
             Debug.Log("Building upgraded to level: " + currentCost + ". Remaining gold is: " + GoldManager.Instance.totalGold);
 
@@ -86,6 +90,22 @@ public class BuildingUpgrade : MonoBehaviour
             {
                 costText.text = "Max Level";
             }
+        }
+    }
+
+    private void UpdateBuildingHealth()
+    {
+        int healthIncreasePerLevel = 50;
+        startingHealth += healthIncreasePerLevel;
+
+        UpdateStartingHealthText();
+    }
+
+    public void UpdateStartingHealthText()
+    {
+        if (startingHealthText != null)
+        {
+            startingHealthText.text = "Health: " + startingHealth;
         }
     }
 }
