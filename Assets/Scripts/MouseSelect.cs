@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseSelect : MonoBehaviour
 {
-    private UnitsMovement selectedUnit;
+    private BaseUnit selectedUnit;
     private GoldResourceNode selectedResource; // Track selected resource
     public LayerMask unitLayer;
     public LayerMask resourceLayer; // Assign in the Inspector
@@ -26,7 +26,7 @@ public class MouseSelect : MonoBehaviour
             if (hit.collider != null)
             {
                 // Check if selecting a unit
-                UnitsMovement unit = hit.collider.GetComponent<UnitsMovement>();
+                BaseUnit unit = hit.collider.GetComponent<BaseUnit>();
                 if (unit != null)
                 {
                     SelectUnit(unit);
@@ -60,19 +60,25 @@ public class MouseSelect : MonoBehaviour
                 if (resource != null)
                 {
                     selectedResource = resource;
-                    selectedUnit.MoveToResource(resource); // Move to resource
+                    Harvester harvester = selectedUnit as Harvester;
+                    if (harvester != null)
+                    {
+                        harvester.MoveToResource(resource);
+                    }
+                    else
+                    {
+                        selectedUnit.MoveTo(resource.transform.position);
+                        Debug.Log("This unit cannot collect resources. Please use a harvester.");
+                    }
                     return;
                 }
             }
-            else
-            {
-                // Move to empty location
-                selectedUnit.MoveTo(ray.origin);
-            }
+            Vector2 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            selectedUnit.MoveTo(worldPosition);
         }
     }
 
-    void SelectUnit(UnitsMovement unit)
+    void SelectUnit(BaseUnit unit)
     {
         if (selectedUnit != null)
         {
@@ -93,7 +99,9 @@ public class MouseSelect : MonoBehaviour
             collider.enabled = true;
         }
 
-        selectedUnit.SetIgnoreCollisions(true);
+        selectedUnit.SetIgnoreCollision(true);
+
+        Debug.Log("Selected " + selectedUnit.unitType + " unit");
     }
 
     void SelectResource(GoldResourceNode resource)
@@ -131,7 +139,7 @@ public class MouseSelect : MonoBehaviour
                 renderer.color = Color.white;
             }
 
-            selectedUnit.SetIgnoreCollisions(false);
+            selectedUnit.SetIgnoreCollision(false);
             selectedUnit = null;
         }
 
