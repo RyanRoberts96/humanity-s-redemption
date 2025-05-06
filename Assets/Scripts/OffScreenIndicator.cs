@@ -45,6 +45,16 @@ public class OffScreenIndicator : MonoBehaviour
         //create indicator
         GameObject indicator = Instantiate(indicatorPrefab, uiCanvas.transform);
         indicator.SetActive(false);
+
+        SpriteRenderer unitSpriteRenderer = unit.GetComponentInChildren<SpriteRenderer>();
+        if (unitSpriteRenderer != null)
+        {
+            Image image = indicator.GetComponentInChildren<Image>();
+            if (image != null)
+            {
+                image.sprite = unitSpriteRenderer.sprite;
+            }
+        }
         unitIndicators.Add(unit, indicator);
     }
 

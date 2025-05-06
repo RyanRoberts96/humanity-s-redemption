@@ -40,6 +40,8 @@ public class BaseUnit : MonoBehaviour
         {
             MoveToTarget();
         }
+
+        ApplySeperation();
     }
 
     private void OnDestroy()
@@ -111,6 +113,27 @@ public class BaseUnit : MonoBehaviour
             if (otherCollider.gameObject != gameObject)
             {
                 Physics2D.IgnoreCollision(unitCollider, otherCollider, ignore);
+            }
+        }
+    }
+
+    private void ApplySeperation()
+    {
+        float seperationRadius = 0.15f;
+        float pushStrength = 1.5f;
+
+        Collider2D[] closeUnits = Physics2D.OverlapCircleAll(transform.position, seperationRadius, LayerMask.GetMask("Unit"));
+        foreach(Collider2D other in closeUnits)
+        {
+            if (other != unitCollider)
+            {
+                Vector2 awayDirection = (Vector2)(transform.position - other.transform.position);
+                float distance = awayDirection.magnitude;
+                if (distance > 0f)
+                {
+                    Vector2 push = awayDirection.normalized * (pushStrength * Time.deltaTime);
+                    transform.position += (Vector3)push;
+                }
             }
         }
     }
