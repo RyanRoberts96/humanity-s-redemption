@@ -28,11 +28,11 @@ public class OffScreenIndicator : MonoBehaviour
 
         if (automaticallyFindUnits)
         {
-            UnitsMovement[] harvesters = FindObjectsOfType<UnitsMovement>();
+            BaseUnit[] units = FindObjectsOfType<BaseUnit>();
 
-            foreach (var harvester in harvesters)
+            foreach (var unit in units)
             {
-                RegisterUnit(harvester.transform);
+                RegisterUnit(unit.transform);
             }
         }
     }
