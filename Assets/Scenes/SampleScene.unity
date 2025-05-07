@@ -363,7 +363,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209958188}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1740,9 +1740,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitType: 0
   moveSpeed: 1
-  attackRange: 0.3
+  attackRange: 0.5
   attackCooldown: 1.5
-  attackDamage: 3
+  attackDamage: 1
 --- !u!50 &790474335
 Rigidbody2D:
   serializedVersion: 4
