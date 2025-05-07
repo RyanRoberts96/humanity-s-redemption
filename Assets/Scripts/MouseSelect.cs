@@ -145,4 +145,9 @@ public class MouseSelect : MonoBehaviour
 
         selectedResource = null;
     }
+
+    public BaseUnit GetSelectedUnit()
+    {
+        return selectedUnit;
+    }
 }

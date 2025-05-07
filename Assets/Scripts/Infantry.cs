@@ -45,6 +45,15 @@ public class Infantry : BaseUnit
         MoveTo(enemy.position, false);
     }
 
+    public void CancelAttack(Transform enemy)
+    {
+        targetEnemy = null;
+        if (attackCoroutine != null)
+        {
+            StopCoroutine(attackCoroutine);
+            attackCoroutine = null;
+        }
+    }
     IEnumerator AttackEnemy()
     {
         while (targetEnemy != null)
