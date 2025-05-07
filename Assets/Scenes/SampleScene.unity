@@ -1367,7 +1367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6ae668b505d4c5c8b29b6851627e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedUnit: {fileID: 790474334}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -1740,10 +1739,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 0
-  moveSpeed: 5
-  attackRange: 1.2
+  moveSpeed: 1
+  attackRange: 0.3
   attackCooldown: 1.5
-  attackDamage: 5
+  attackDamage: 3
 --- !u!50 &790474335
 Rigidbody2D:
   serializedVersion: 4
@@ -1803,7 +1802,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.009413242, y: 0.0031377673}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1814,7 +1813,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 0.21953678, y: 0.29484499}
   m_EdgeRadius: 0
 --- !u!1 &956042049
 GameObject:
