@@ -52,7 +52,7 @@ public class BaseUnit : MonoBehaviour
         }
     }
 
-    public virtual void MoveTo(Vector2 position, bool resetTarget = true)
+    public virtual void MoveTo(Vector2 position, bool resetTarget = true, float stopRange = 0)
     {
         if (IsPathClear(position))
         {
@@ -92,8 +92,12 @@ public class BaseUnit : MonoBehaviour
         }
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
-        if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
+        if (Vector2.Distance(transform.position, targetPosition) > 0.1f)
         {
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+        }
+        else
+        { 
             isMoving = false;
             OnReachedDestination();
         }

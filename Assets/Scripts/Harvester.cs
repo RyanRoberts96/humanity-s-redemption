@@ -42,9 +42,9 @@ public class Harvester : BaseUnit
         }
     }
 
-    public override void MoveTo(Vector2 position, bool resetTarget = true)
+    public override void MoveTo(Vector2 position, bool resetTarget = true, float stopRange = 0)
     {
-        base.MoveTo(position);
+        base.MoveTo(position, resetTarget, stopRange);
 
         if (harvestCoroutine != null)
         {

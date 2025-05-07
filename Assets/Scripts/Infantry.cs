@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Infantry : BaseUnit
@@ -8,7 +9,7 @@ public class Infantry : BaseUnit
     public float attackCooldown = 1.5f;
     public int attackDamage = 5;
 
-    private Coroutine attackCoroutine;
+    private float lastAttackTime = 0;
     private Transform targetEnemy;
 
     protected override void Start()
@@ -25,16 +26,17 @@ public class Infantry : BaseUnit
         {
             float distance = Vector2.Distance(transform.position, targetEnemy.position);
 
-            if (distance > attackRange)
+            if (distance <= attackRange)
             {
-                MoveTo(targetEnemy.position, false);
+                StopMovement();
+                if (Time.time >= lastAttackTime + attackCooldown)
+                {
+                    AttackEnemy();
+                }
             }
             else
             {
-                if (attackCoroutine == null)
-                {
-                    attackCoroutine = StartCoroutine(AttackEnemy());
-                }
+                MoveTo(targetEnemy.position, false, attackRange);
             }
         }
     }
@@ -42,39 +44,29 @@ public class Infantry : BaseUnit
     public void CommandAttack(Transform enemy)
     {
         targetEnemy = enemy;
-        MoveTo(enemy.position, false);
+        MoveTo(enemy.position, false, attackRange);
     }
 
     public void CancelAttack(Transform enemy)
     {
         targetEnemy = null;
-        if (attackCoroutine != null)
-        {
-            StopCoroutine(attackCoroutine);
-            attackCoroutine = null;
-        }
+        StopMovement();
     }
-    IEnumerator AttackEnemy()
+    private void AttackEnemy()
     {
-        while (targetEnemy != null)
+        // Apply damage to the target enemy
+        Health enemyHealth = targetEnemy.GetComponent<Health>();
+        if (enemyHealth != null)
         {
-            float distance = Vector2.Distance(transform.position, targetEnemy.position);
-
-            if (distance > attackRange)
-            {
-                attackCoroutine = null;
-                yield break;
-            }
-
-            Health enemyHealth = targetEnemy.GetComponent <Health>();
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(attackDamage);
-            }
-
-            yield return new WaitForSeconds(attackCooldown);
+            enemyHealth.TakeDamage(attackDamage);
         }
 
-        attackCoroutine = null;
+        // Update the last attack time
+        lastAttackTime = Time.time;
+    }
+
+    protected void StopMovement()
+    {
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 }
