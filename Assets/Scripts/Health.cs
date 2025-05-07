@@ -5,19 +5,19 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public int maxHealth = 20;
-    private int currentHealth;
+    public int CurrentHealth { get; private set;}
 
-    void start()
+    void Start()
     {
-        currentHealth = maxHealth;
+        CurrentHealth = maxHealth;
     }
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
-        Debug.Log(gameObject.name + " took " + amount + " damage. Remaining health is: " + currentHealth);
+        CurrentHealth -= amount;
+        Debug.Log(gameObject.name + " took " + amount + " damage. Remaining health is: " + CurrentHealth);
 
-        if (currentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             Die();
         }

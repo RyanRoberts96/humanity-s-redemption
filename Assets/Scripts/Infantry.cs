@@ -39,7 +39,7 @@ public class Infantry : BaseUnit
         }
     }
 
-    public void EngageEnemy(Transform enemy)
+    public void CommandAttack(Transform enemy)
     {
         targetEnemy = enemy;
         MoveTo(enemy.position, false);
@@ -67,21 +67,5 @@ public class Infantry : BaseUnit
         }
 
         attackCoroutine = null;
-    }
-
-    public override void MoveTo(Vector2 position, bool resetTarget = true)
-    {
-        base.MoveTo(position, resetTarget);
-
-        if (attackCoroutine != null)
-        {
-            StopCoroutine(attackCoroutine);
-            attackCoroutine = null;
-        }
-
-        if (resetTarget)
-        {
-            targetEnemy = null;
-        }
     }
 }
