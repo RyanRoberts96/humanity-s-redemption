@@ -38,6 +38,12 @@ public class ClickAttack : MonoBehaviour
                     selectedInfantry.CommandAttack(hit.collider.transform);
                     Debug.Log("Infantry attacking: " + hit.collider.name);
                 }
+                else
+                {
+                    selectedInfantry.CancelAttack();
+                    selectedInfantry.MoveTo(mousePos, true);
+                    Debug.Log("Infantry moving to point and cancelling attack.");
+                }
             }
         }
     }

@@ -8,6 +8,7 @@ public class Infantry : BaseUnit
     public float attackRange = 1.2f;
     public float attackCooldown = 1.5f;
     public int attackDamage = 5;
+    private float stopDistance = 0f;
 
     private float lastAttackTime = 0;
     private Transform targetEnemy;
@@ -39,6 +40,10 @@ public class Infantry : BaseUnit
                 MoveTo(targetEnemy.position, false, attackRange);
             }
         }
+        if (isMoving)
+        {
+            MoveToTarget();
+        }
     }
 
     public void CommandAttack(Transform enemy)
@@ -68,5 +73,37 @@ public class Infantry : BaseUnit
     protected void StopMovement()
     {
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
+    public override void MoveTo(Vector2 position, bool resetTarget = true, float customStopRange = 0)
+    {
+        stopDistance = customStopRange;
+        targetPosition = position;
+        isMoving = true;
+    }
+
+    private void MoveToTarget()
+    {
+        Vector2 direction = targetPosition - (Vector2)transform.position;
+
+        if (direction.sqrMagnitude > 0.1f)
+        {
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
+
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, targetPosition) <= stopDistance)
+        {
+            isMoving = false;
+            StopMovement();
+        }
+    }
+
+    public void CancelAttack()
+    {
+        targetEnemy = null;
+        StopMovement();
     }
 }

@@ -15,8 +15,8 @@ public class BaseUnit : MonoBehaviour
     public UnitType unitType;
     public float moveSpeed = 5f;
 
-    private Vector2 targetPosition;
-    private bool isMoving = false;
+    protected Vector2 targetPosition;
+    protected bool isMoving = false;
     private Collider2D unitCollider;
 
     private OffScreenIndicator indicatorSystem;
