@@ -8,7 +8,6 @@ public class Infantry : BaseUnit
     public float attackRange = 1.2f;
     public float attackCooldown = 1.5f;
     public int attackDamage = 5;
-    private float stopDistance = 0f;
 
     private float lastAttackTime = 0;
     private Transform targetEnemy;
@@ -72,12 +71,13 @@ public class Infantry : BaseUnit
 
     protected void StopMovement()
     {
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        isMoving = false;
+        //GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     public override void MoveTo(Vector2 position, bool resetTarget = true, float customStopRange = 0)
     {
-        stopDistance = customStopRange;
+        stopDistance = customStopRange > 0 ? customStopRange : attackRange;
         targetPosition = position;
         isMoving = true;
     }

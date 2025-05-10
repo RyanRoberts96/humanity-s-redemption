@@ -552,8 +552,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitType: 0
   moveSpeed: 0.25
+  stopDistance: 1
   maxCapacity: 25
   currentCapacity: 0
+  harvestingStopDistance: 0.4
   baseIncome: 2
   capacitySlider: {fileID: 1012574119190546382}
 --- !u!1 &8810475975925775107

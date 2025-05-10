@@ -14,6 +14,7 @@ public class BaseUnit : MonoBehaviour
 {
     public UnitType unitType;
     public float moveSpeed = 5f;
+    protected float stopDistance = 0.1f;
 
     protected Vector2 targetPosition;
     protected bool isMoving = false;
@@ -57,6 +58,7 @@ public class BaseUnit : MonoBehaviour
         if (IsPathClear(position))
         {
             targetPosition = position;
+            stopDistance = stopRange > 0 ? stopRange : 0.1f;
             isMoving = true;
         }
         else
@@ -90,9 +92,8 @@ public class BaseUnit : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
-        if (Vector2.Distance(transform.position, targetPosition) > 0.1f)
+        if (Vector2.Distance(transform.position, targetPosition) > stopDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }

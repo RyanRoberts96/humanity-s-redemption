@@ -101,7 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitType: 0
   moveSpeed: 1
-  attackRange: 0.3
+  stopDistance: 0
+  attackRange: 0.34
   attackCooldown: 1.5
   attackDamage: 1
 --- !u!61 &1059382304639230233

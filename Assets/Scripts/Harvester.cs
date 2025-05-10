@@ -11,6 +11,7 @@ public class Harvester : BaseUnit
 
     public int maxCapacity = 10;
     public int currentCapacity = 0;
+    [SerializeField] private float harvestingStopDistance = 2f;
 
     [SerializeField] private int baseIncome = 3;
     private int currentIncome;
@@ -63,7 +64,7 @@ public class Harvester : BaseUnit
         if (resource == null) return;
 
         targetResource = resource;
-        MoveTo(resource.transform.position, false);
+        MoveTo(resource.transform.position, false, harvestingStopDistance);
     }
 
     protected override void OnReachedDestination()
