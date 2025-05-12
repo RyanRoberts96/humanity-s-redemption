@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6841788691491266451}
   - component: {fileID: 1059382304639230233}
   - component: {fileID: 1492088168431157450}
+  - component: {fileID: 37740716982202768}
   m_Layer: 3
   m_Name: Infantry
   m_TagString: Untagged
@@ -99,9 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5adb3b1941c24dcfbe0cb08e24f368a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitType: 0
+  unitType: 1
   moveSpeed: 1
-  stopDistance: 0
   attackRange: 0.34
   attackCooldown: 1.5
   attackDamage: 1
@@ -177,3 +177,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 2
+--- !u!114 &37740716982202768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69705718699470624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a44a1ece036400da59796bca841521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  healthSlider: {fileID: 0}
