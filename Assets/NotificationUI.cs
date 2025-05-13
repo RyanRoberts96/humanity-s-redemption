@@ -7,41 +7,33 @@ using TMPro;
 public class NotificationUI : MonoBehaviour
 {
 
-    public TMP_Text notificationText;
     public float displayTime = 3f;
-
-    private Coroutine currentRoutine;
     public static NotificationUI Instance;
+    public GameObject notificationPrefab;
+    public Transform notificationContainer;
 
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
-
-        if (notificationText != null)
-            notificationText.text = "";
     }
 
     public void ShowMessage(string message, Color? color = null)
     {
-        if (notificationText == null) return;
+        GameObject newNotification = Instantiate(notificationPrefab, notificationContainer);
 
-        if (currentRoutine != null)
-        {
-            StopCoroutine(currentRoutine);
-        }
-
+        TMP_Text textComponent = newNotification.GetComponentInChildren<TMP_Text>();
+        textComponent.text = message;
         if (color.HasValue)
-            notificationText.color = color.Value;
+            textComponent.color = color.Value;
 
-        currentRoutine = StartCoroutine(DisplayMessageRoutine(message));
+        StartCoroutine(RemoveAfterTime(newNotification, displayTime));
     }
 
-    private IEnumerator DisplayMessageRoutine(string message)
+    private IEnumerator RemoveAfterTime(GameObject notification, float delay)
     {
-        notificationText.text = message;
-        yield return new WaitForSeconds(displayTime);
-        notificationText.text = "";
+        yield return new WaitForSeconds(delay);
+        Destroy(notification);
     }
 }

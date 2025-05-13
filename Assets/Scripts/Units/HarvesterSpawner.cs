@@ -20,7 +20,7 @@ public class HarvesterSpawner : MonoBehaviour
 
             if (NotificationUI.Instance != null)
             { 
-                NotificationUI.Instance.ShowMessage("harvester has been spawned at your harvester homebase", Color.yellow);
+                NotificationUI.Instance.ShowMessage("Harvester spawned!", Color.yellow);
             }
 
             Health health = harvester.GetComponent<Health>();
