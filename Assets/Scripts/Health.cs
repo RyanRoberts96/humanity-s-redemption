@@ -39,6 +39,15 @@ public class Health : MonoBehaviour
     private void Die()
     {
         Debug.Log(gameObject.name + " has died.");
+
+        if (NotificationUI.Instance != null)
+        {
+            string unitName = gameObject.name;
+            Vector3 position = transform.position;
+            string posString = $"({position.x:F1}, {position.y:F1}, {position.z:F1})";
+               
+            NotificationUI.Instance.ShowMessage($"{unitName} has been destroyed at: {posString}", Color.yellow);
+        }
         Destroy(gameObject);
     }
 

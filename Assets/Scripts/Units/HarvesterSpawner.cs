@@ -18,6 +18,11 @@ public class HarvesterSpawner : MonoBehaviour
             GameObject harvester = Instantiate(harvesterPrefab, spawnPoint.position, Quaternion.identity);
             Debug.Log("Harvester Spawned");
 
+            if (NotificationUI.Instance != null)
+            { 
+                NotificationUI.Instance.ShowMessage("harvester has been spawned at your harvester homebase", Color.yellow);
+            }
+
             Health health = harvester.GetComponent<Health>();
             if (health != null)
             {
