@@ -9,6 +9,12 @@ public class HealthSliderSetup : MonoBehaviour
     [SerializeField] private Canvas worldCanvas;
     [SerializeField] private Vector3 sliderOffset = new Vector3(0, 1.5f, 0);
 
+    private static HealthSliderSetup instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -36,5 +42,17 @@ public class HealthSliderSetup : MonoBehaviour
         //connect slider to health component
         Slider slider = sliderobj.GetComponent<Slider>();
         health.SetHealthSlider(slider);
+    }
+
+    public static void AttachSliderTo(Health health)
+    {
+        if (instance != null)
+        {
+            instance.CreateHealthSlider(health);
+        }
+        else
+        {
+            Debug.Log("Health slider setup instancd not found");
+        }
     }
 }

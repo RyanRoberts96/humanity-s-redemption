@@ -15,8 +15,14 @@ public class HarvesterSpawner : MonoBehaviour
         if (GoldManager.Instance.totalGold >= harvesterCost)
         {
             GoldManager.Instance.totalGold -= harvesterCost;
-            Instantiate(harvesterPrefab, spawnPoint.position, Quaternion.identity);
+            GameObject harvester = Instantiate(harvesterPrefab, spawnPoint.position, Quaternion.identity);
             Debug.Log("Harvester Spawned");
+
+            Health health = harvester.GetComponent<Health>();
+            if (health != null)
+            {
+                HealthSliderSetup.AttachSliderTo(health);
+            }
         }
         else
         {
