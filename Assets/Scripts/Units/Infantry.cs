@@ -8,14 +8,23 @@ public class Infantry : BaseUnit
     public float attackRange = 1.2f;
     public float attackCooldown = 1.5f;
     public int attackDamage = 5;
-
     private float lastAttackTime = 0;
     private Transform targetEnemy;
+
+    [Header("projectile Settings")]
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public float bulletSpeed = 10f;
 
     protected override void Start()
     {
         base.Start();
         unitType = UnitType.Infantry;
+
+        if (firePoint == null)
+        {
+            firePoint = transform;
+        }
     }
 
     protected override void Update()
@@ -58,21 +67,34 @@ public class Infantry : BaseUnit
     }
     private void AttackEnemy()
     {
-        // Apply damage to the target enemy
-        Health enemyHealth = targetEnemy.GetComponent<Health>();
-        if (enemyHealth != null)
-        {
-            enemyHealth.TakeDamage(attackDamage);
-        }
+        if (targetEnemy == null) return;
 
-        // Update the last attack time
+        Vector2 direction = (targetEnemy.position - firePoint.position).normalized;
+
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+
+        Bullet bulletComponent = bullet.GetComponent<Bullet>();
+
+        if (bulletComponent != null)
+        {
+            bulletComponent.Initialize(direction, bulletSpeed, attackDamage, this.gameObject);
+        }
+        else
+        {
+            Debug.LogError("Bullet prefab missing Bullet component!");
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.velocity = direction * bulletSpeed;
+            }
+            Destroy(bullet, 5f);
+        }
         lastAttackTime = Time.time;
     }
 
     protected void StopMovement()
     {
         isMoving = false;
-        //GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     public override void MoveTo(Vector2 position, bool resetTarget = true, float customStopRange = 0)
@@ -80,6 +102,11 @@ public class Infantry : BaseUnit
         stopDistance = customStopRange > 0 ? customStopRange : attackRange;
         targetPosition = position;
         isMoving = true;
+
+        if (resetTarget)
+        {
+            targetEnemy = null;
+        }
     }
 
     private void MoveToTarget()
