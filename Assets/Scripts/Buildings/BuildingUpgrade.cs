@@ -19,7 +19,7 @@ public class BuildingUpgrade : MonoBehaviour
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private int startingHealth = 150;
     [SerializeField] private TextMeshProUGUI startingHealthText;
-
+    public int CurrentLevel => currentLevel;
     [SerializeField] private UnitsMovement harvester;
 
     private void Start()
@@ -56,6 +56,8 @@ public class BuildingUpgrade : MonoBehaviour
             UpdateCostText();
             UpdateBuildingHealth();
 
+            OnUpgrade();
+
             NotificationUI.Instance.ShowMessage($"{gameObject.name} upgraded to level: {currentLevel}. .Remaining gold is: {GoldManager.Instance.totalGold}", Color.white);
 
             Debug.Log("Building upgraded to level: " + currentLevel + ". Remaining gold is: " + GoldManager.Instance.totalGold);
@@ -66,6 +68,11 @@ public class BuildingUpgrade : MonoBehaviour
             NotificationUI.Instance.ShowMessage($"You need {currentCost - GoldManager.Instance.totalGold} to upgrade to the next level", Color.white);
             Debug.Log("Not enough gold to upgrade! You need " + currentCost + " gold");
         }
+    }
+
+    protected virtual void OnUpgrade()
+    {
+
     }
 
     private int CalculateUpgradeCost()

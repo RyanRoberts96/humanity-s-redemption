@@ -1870,10 +1870,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2656257090795655990, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1828821501}
+      addedObject: {fileID: 1828821500}
     - targetCorrespondingSourceObject: {fileID: 2656257090795655990, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1828821500}
+      addedObject: {fileID: 1828821506}
   m_SourcePrefab: {fileID: 100100000, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
 --- !u!1 &739942025
 GameObject:
@@ -3968,7 +3968,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1828821501}
+      - m_Target: {fileID: 1828821506}
         m_TargetAssemblyTypeName: BuildingUpgrade, Assembly-CSharp
         m_MethodName: upgradeBuilding
         m_Mode: 1
@@ -4036,7 +4036,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 922662135}
---- !u!114 &1828821501
+--- !u!4 &1828821505 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6192144425266236187, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
+  m_PrefabInstance: {fileID: 725476807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1828821506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4045,7 +4050,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1828821499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33fa65fee5dcf4c76909929f57781877, type: 3}
+  m_Script: {fileID: 11500000, guid: 78913ba6138f2477d8e9cc2a5b24d168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buildingObject: {fileID: 1828821499}
@@ -4060,12 +4065,11 @@ MonoBehaviour:
   costText: {fileID: 1643441221}
   startingHealth: 150
   startingHealthText: {fileID: 0}
-  harvester: {fileID: 4214930185177627012, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
---- !u!4 &1828821505 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6192144425266236187, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
-  m_PrefabInstance: {fileID: 725476807}
-  m_PrefabAsset: {fileID: 0}
+  harvester: {fileID: 0}
+  unlockableUnits:
+  - {fileID: 11400000, guid: 520e6248df9f04f3f8cceb7fd5f9e1ea, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &1891357834
 PrefabInstance:
   m_ObjectHideFlags: 0
