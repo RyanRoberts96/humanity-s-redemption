@@ -6,6 +6,7 @@ public class ArmyCampUpgrade : BuildingUpgrade
 {
     [SerializeField] private List<UnitData> unlockableUnits;
     private List<UnitData> unlockedUnits = new List<UnitData>();
+    [SerializeField] private UnitSpawner buttonSpawner;
 
     protected override void OnUpgrade()
     {
@@ -23,6 +24,7 @@ public class ArmyCampUpgrade : BuildingUpgrade
             {
                 unlockedUnits.Add(unit);
                 NotificationUI.Instance.ShowMessage($"{unit.name} unlocked!", Color.green);
+                buttonSpawner.ActivateUnitButton(unit);
             }
         }
     }

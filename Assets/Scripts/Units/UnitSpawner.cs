@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitSpawner : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class UnitSpawner : MonoBehaviour
     public Transform spawnPoint;
     private Queue<UnitData> unitQue = new Queue<UnitData>();
     private bool isSpawning = false;
+    [SerializeField] private List<GameObject> unitSpawnerButtons;
 
     public void SpawnUnit(UnitData unitToSpawn)
     {
@@ -56,5 +58,30 @@ public class UnitSpawner : MonoBehaviour
             }
         }
         isSpawning = false;
+    }
+    public void ActivateUnitButton(UnitData unlockedUnit)
+    {
+        int unitIndex = GetUnitIndex(unlockedUnit);
+
+        if (unitIndex >= 0 && unitIndex < unitSpawnerButtons.Count)
+        {
+            // Activate the button for the unlocked unit
+            unitSpawnerButtons[unitIndex].SetActive(true);
+
+            // Add listener to the button to spawn the unit when clicked
+            Button unitButton = unitSpawnerButtons[unitIndex].GetComponent<Button>();
+            unitButton.onClick.RemoveAllListeners();  // Remove any existing listeners
+            unitButton.onClick.AddListener(() => SpawnUnit(unlockedUnit)); // Add a listener to spawn the unit
+        }
+        else
+        {
+            Debug.LogWarning("No button found for this unit.");
+        }
+    }
+
+    private int GetUnitIndex(UnitData unit)
+    {
+        return unit != null ? unitSpawnerButtons.FindIndex(button => button.name == unit.unitName) : -1;
+
     }
 }
