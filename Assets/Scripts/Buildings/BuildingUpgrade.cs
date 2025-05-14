@@ -56,11 +56,14 @@ public class BuildingUpgrade : MonoBehaviour
             UpdateCostText();
             UpdateBuildingHealth();
 
-            Debug.Log("Building upgraded to level: " + currentCost + ". Remaining gold is: " + GoldManager.Instance.totalGold);
+            NotificationUI.Instance.ShowMessage($"{gameObject.name} upgraded to level: {currentLevel}. .Remaining gold is: {GoldManager.Instance.totalGold}", Color.white);
+
+            Debug.Log("Building upgraded to level: " + currentLevel + ". Remaining gold is: " + GoldManager.Instance.totalGold);
 
         }
         else
         {
+            NotificationUI.Instance.ShowMessage($"You need {currentCost - GoldManager.Instance.totalGold} to upgrade to the next level", Color.white);
             Debug.Log("Not enough gold to upgrade! You need " + currentCost + " gold");
         }
     }

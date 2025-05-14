@@ -219,7 +219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4450348580439579823, guid: 6724619768f60481992c13720138d438, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8294362293240501289, guid: 6724619768f60481992c13720138d438, type: 3}
       propertyPath: m_Name
@@ -630,7 +630,7 @@ MonoBehaviour:
   buildingObject: {fileID: 276730936}
   currentLevel: 1
   maxLevel: 5
-  upgradeCost: 50
+  upgradeCost: 75
   sizeIncreasePerLevel: 0.1
   upgradeMultiplier: 2
   incomeIncreasePerLevel: 4
@@ -1786,7 +1786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding:
     m_Left: 0
-    m_Right: 0
+    m_Right: 5
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 2
@@ -2383,7 +2383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &922763030
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4140,7 +4140,7 @@ MonoBehaviour:
   buildingObject: {fileID: 1828821499}
   currentLevel: 1
   maxLevel: 3
-  upgradeCost: 75
+  upgradeCost: 100
   sizeIncreasePerLevel: 0.1
   upgradeMultiplier: 2.5
   incomeIncreasePerLevel: 0
