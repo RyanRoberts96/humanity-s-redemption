@@ -2691,8 +2691,16 @@ PrefabInstance:
       value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 6841788691491266451, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 5096377505064193054, guid: 85445ee60653c41fd862261fe46565a8, type: 3}
+    - target: {fileID: 6841788691491266451, guid: a81c15c3d880a425690fa9533923387f, type: 3}
       propertyPath: stopDistance
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841788691491266451, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: bulletSpawnPoint
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
