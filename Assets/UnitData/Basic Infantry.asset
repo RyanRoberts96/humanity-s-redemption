@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ad0c59d360df4ce58e390dda0ea3c6c, type: 3}
-  m_Name: Infantry
+  m_Name: Basic Infantry
   m_EditorClassIdentifier: 
   unitPrefab: {fileID: 69705718699470624, guid: a81c15c3d880a425690fa9533923387f, type: 3}
   cost: 75
-  unitName: Infantry
+  unitName: Basic Infantry
   spawnMessageColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   spawnDelay: 10

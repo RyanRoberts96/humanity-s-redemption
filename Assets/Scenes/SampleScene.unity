@@ -658,6 +658,83 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 720107458}
+--- !u!1001 &396587468
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 69705718699470624, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: m_Name
+      value: Experienced Infantry
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683136944653782397, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fb6156c378ca74378bda5bdb17e00b1d, type: 3}
+    - target: {fileID: 6001904412867548488, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.952
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001904412867548488, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.1896441
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001904412867548488, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001904412867548488, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001904412867548488, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001904412867548488, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001904412867548488, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001904412867548488, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001904412867548488, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001904412867548488, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841788691491266451, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: attackRange
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841788691491266451, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 5096377505064193054, guid: 85445ee60653c41fd862261fe46565a8, type: 3}
+    - target: {fileID: 6841788691491266451, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: stopDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841788691491266451, guid: a81c15c3d880a425690fa9533923387f, type: 3}
+      propertyPath: bulletSpawnPoint
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a81c15c3d880a425690fa9533923387f, type: 3}
 --- !u!1 &407043210
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,7 +3911,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 69705718699470624, guid: a81c15c3d880a425690fa9533923387f, type: 3}
       propertyPath: m_Name
-      value: Infantry
+      value: Basic Infantry
       objectReference: {fileID: 0}
     - target: {fileID: 6001904412867548488, guid: a81c15c3d880a425690fa9533923387f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4062,11 +4139,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingObject: {fileID: 1828821499}
   currentLevel: 1
-  maxLevel: 5
-  upgradeCost: 50
+  maxLevel: 3
+  upgradeCost: 75
   sizeIncreasePerLevel: 0.1
-  upgradeMultiplier: 2
-  incomeIncreasePerLevel: 4
+  upgradeMultiplier: 2.5
+  incomeIncreasePerLevel: 0
   panel: {fileID: 922763029}
   levelText: {fileID: 2099923972}
   costText: {fileID: 1643441221}
@@ -4886,5 +4963,6 @@ SceneRoots:
   - {fileID: 128023437}
   - {fileID: 3977740426116622785}
   - {fileID: 1698185505}
+  - {fileID: 396587468}
   - {fileID: 1994209629}
   - {fileID: 55332437}

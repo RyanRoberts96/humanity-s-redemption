@@ -61,7 +61,7 @@ public class BuildingUpgrade : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough gold to upgrade! You need " + upgradeCost + "gold");
+            Debug.Log("Not enough gold to upgrade! You need " + currentCost + " gold");
         }
     }
 
