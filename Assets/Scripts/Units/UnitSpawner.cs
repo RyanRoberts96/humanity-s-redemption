@@ -6,10 +6,10 @@ public class UnitSpawner : MonoBehaviour
 {
 
     public Transform spawnPoint;
-    public UnitData unitToSpawn;
+    private Queue<UnitData> unitQue = new Queue<UnitData>();
+    private bool isSpawning = false;
 
-
-    public void SpawnUnit()
+    public void SpawnUnit(UnitData unitToSpawn)
     {
         if (unitToSpawn == null)
         {
@@ -20,7 +20,11 @@ public class UnitSpawner : MonoBehaviour
         if (GoldManager.Instance.totalGold >= unitToSpawn.cost)
         {
             GoldManager.Instance.totalGold -= unitToSpawn.cost;
-            StartCoroutine(SpawnUnitAfterDelay(unitToSpawn));
+            unitQue.Enqueue(unitToSpawn);
+            if (!isSpawning)
+            {
+                StartCoroutine(ProcessQue());
+            }
         }
         else
         {
@@ -28,22 +32,29 @@ public class UnitSpawner : MonoBehaviour
         }
     }
 
-    private IEnumerator SpawnUnitAfterDelay(UnitData unitData)
+    private IEnumerator ProcessQue()
     {
-        yield return new WaitForSeconds(unitData.spawnDelay);
+        isSpawning = true;
 
-        GameObject unit = Instantiate(unitData.unitPrefab, spawnPoint.position, Quaternion.identity);
-        Debug.Log($"{unitData.unitName} spawned.");
-
-        if (NotificationUI.Instance != null)
+        while (unitQue.Count > 0)
         {
-            NotificationUI.Instance.ShowMessage($"{unitData.unitName} spawned.", unitData.spawnMessageColor);
-        }
+            UnitData nextUnit = unitQue.Dequeue();
+            yield return new WaitForSeconds(nextUnit.spawnDelay);
 
-        Health health = unit.GetComponent<Health>();
-        if (health != null)
-        {
-            HealthSliderSetup.AttachSliderTo(health);
+            GameObject unit = Instantiate(nextUnit.unitPrefab, spawnPoint.position, Quaternion.identity);
+            Debug.Log($"{ nextUnit.unitName} spawned.");
+
+            if (NotificationUI.Instance != null)
+            {
+                NotificationUI.Instance.ShowMessage($"{nextUnit.unitName} spawned.", nextUnit.spawnMessageColor);
+            }
+
+            Health health = unit.GetComponent<Health>();
+            if (health != null)
+            {
+                HealthSliderSetup.AttachSliderTo(health);
+            }
         }
+        isSpawning = false;
     }
 }

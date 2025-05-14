@@ -794,7 +794,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 720107458}
-  unitToSpawn: {fileID: 11400000, guid: 914f476a9b23447018b50e766295fe6d, type: 2}
 --- !u!1 &407043210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,10 +1495,10 @@ MonoBehaviour:
       - m_Target: {fileID: 276730947}
         m_TargetAssemblyTypeName: UnitSpawner, Assembly-CSharp
         m_MethodName: SpawnUnit
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 914f476a9b23447018b50e766295fe6d, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnitData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2941,10 +2940,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1828821500}
         m_TargetAssemblyTypeName: UnitSpawner, Assembly-CSharp
         m_MethodName: SpawnUnit
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 520e6248df9f04f3f8cceb7fd5f9e1ea, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnitData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4186,7 +4185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 922662135}
-  unitToSpawn: {fileID: 11400000, guid: 520e6248df9f04f3f8cceb7fd5f9e1ea, type: 2}
 --- !u!114 &1828821501
 MonoBehaviour:
   m_ObjectHideFlags: 0
