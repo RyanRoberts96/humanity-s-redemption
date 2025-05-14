@@ -55,6 +55,12 @@ public class OffScreenIndicator : MonoBehaviour
                 image.sprite = unitSpriteRenderer.sprite;
             }
         }
+
+        Button button = indicator.GetComponentInChildren<Button>();
+        if (button != null)
+        {
+            button.onClick.AddListener(() => FocusCameraOnUnit(unit));
+        }
         unitIndicators.Add(unit, indicator);
     }
 
@@ -131,6 +137,25 @@ public class OffScreenIndicator : MonoBehaviour
         foreach (var unit in unitsToRemove)
         {
             UnregisterUnit(unit);
+        }
+    }
+
+    public void FocusCameraOnUnit(Transform unit)
+    {
+        if (unit == null) return;
+
+        Debug.Log("Focusing camera on: " + unit.name);
+
+        CameraMovement camMovement = mainCamera.GetComponent<CameraMovement>();
+        if (camMovement != null)
+        {
+            camMovement.FocusOnPosition(unit.position, smooth: true);
+        }
+        else
+        {
+            Vector3 targetPosition = unit.position;
+            targetPosition.z = mainCamera.transform.position.z;
+            mainCamera.transform.position = targetPosition;
         }
     }
 }

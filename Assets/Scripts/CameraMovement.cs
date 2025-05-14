@@ -67,4 +67,39 @@ public class CameraMovement : MonoBehaviour
             Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, minZoom, maxZoom);  // Limit zoom range
         }
     }
+
+    public void FocusOnPosition(Vector3 targetPosition, bool smooth = false)
+    {
+        targetPosition.z = transform.position.z;
+
+        float clampedX = Mathf.Clamp(targetPosition.x, minX, maxX);
+        float clampedY = Mathf.Clamp(targetPosition.y, minY, maxY);
+        Vector3 clampedTarget = new Vector3(clampedX, clampedY, targetPosition.z);
+
+        if (smooth)
+        {
+            StopAllCoroutines();
+            StartCoroutine(SmoothMoveToPosition(clampedTarget));
+        }
+        else
+        {
+            transform.position = clampedTarget;
+        }
+    }
+
+    private IEnumerator SmoothMoveToPosition(Vector3 target)
+    {
+        float duration = 0.5f;
+        float elapsed = 0f;
+        Vector3 startPos = transform.position;
+
+        while (elapsed < duration)
+        {
+            transform.position = Vector3.Lerp(startPos, target, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = target;
+    }
 }
