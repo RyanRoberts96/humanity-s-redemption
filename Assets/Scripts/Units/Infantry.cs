@@ -99,7 +99,7 @@ public class Infantry : BaseUnit
 
     public override void MoveTo(Vector2 position, bool resetTarget = true, float customStopRange = 0)
     {
-        stopDistance = customStopRange > 0 ? customStopRange : attackRange;
+        stopDistance = customStopRange > 0 ? customStopRange : 0f;
         targetPosition = position;
         isMoving = true;
 
