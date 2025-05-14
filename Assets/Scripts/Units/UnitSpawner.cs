@@ -20,23 +20,30 @@ public class UnitSpawner : MonoBehaviour
         if (GoldManager.Instance.totalGold >= unitToSpawn.cost)
         {
             GoldManager.Instance.totalGold -= unitToSpawn.cost;
-            GameObject unit = Instantiate(unitToSpawn.unitPrefab, spawnPoint.position, Quaternion.identity);
-            Debug.Log($"{unitToSpawn.unitName} spawned.");
-
-            if (NotificationUI.Instance != null)
-            { 
-                NotificationUI.Instance.ShowMessage($"{unitToSpawn.unitName} spawned.", unitToSpawn.spawnMessageColor);
-            }
-
-            Health health = unit.GetComponent<Health>();
-            if (health != null)
-            {
-                HealthSliderSetup.AttachSliderTo(health);
-            }
+            StartCoroutine(SpawnUnitAfterDelay(unitToSpawn));
         }
         else
         {
             Debug.Log($"Not enough gold to spawn {unitToSpawn.unitName}.");
+        }
+    }
+
+    private IEnumerator SpawnUnitAfterDelay(UnitData unitData)
+    {
+        yield return new WaitForSeconds(unitData.spawnDelay);
+
+        GameObject unit = Instantiate(unitData.unitPrefab, spawnPoint.position, Quaternion.identity);
+        Debug.Log($"{unitData.unitName} spawned.");
+
+        if (NotificationUI.Instance != null)
+        {
+            NotificationUI.Instance.ShowMessage($"{unitData.unitName} spawned.", unitData.spawnMessageColor);
+        }
+
+        Health health = unit.GetComponent<Health>();
+        if (health != null)
+        {
+            HealthSliderSetup.AttachSliderTo(health);
         }
     }
 }

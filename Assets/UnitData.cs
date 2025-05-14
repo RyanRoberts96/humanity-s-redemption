@@ -11,4 +11,5 @@ public class UnitData : ScriptableObject
     public int cost;
     public string unitName;
     public Color spawnMessageColor = Color.yellow;
+    public float spawnDelay = 3f;
 }
