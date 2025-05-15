@@ -21,6 +21,8 @@ public class BuildingUpgrade : MonoBehaviour
     [SerializeField] private TextMeshProUGUI startingHealthText;
     public int CurrentLevel => currentLevel;
     [SerializeField] private UnitsMovement harvester;
+    [SerializeField] private Health buildingHealth;
+
 
     private void Start()
     {
@@ -66,7 +68,7 @@ public class BuildingUpgrade : MonoBehaviour
         else
         {
             NotificationUI.Instance.ShowMessage($"You need {currentCost - GoldManager.Instance.totalGold} to upgrade to the next level", Color.white);
-            Debug.Log("Not enough gold to upgrade! You need " + currentCost + " gold");
+            //Debug.Log("Not enough gold to upgrade! You need " + currentCost + " gold");
         }
     }
 
@@ -107,6 +109,19 @@ public class BuildingUpgrade : MonoBehaviour
     {
         int healthIncreasePerLevel = 50;
         startingHealth += healthIncreasePerLevel;
+
+        if (buildingHealth != null)
+        {
+            buildingHealth.maxHealth = startingHealth;
+            buildingHealth.SetHealth(buildingHealth.maxHealth);
+
+            if (buildingHealth.healthSlider != null)
+            {
+                buildingHealth.healthSlider.maxValue = buildingHealth.maxHealth;
+                buildingHealth.healthSlider.value = buildingHealth.CurrentHealth;
+            }
+            Debug.Log($"{gameObject.name} Health Updated: CurrentHealth = {buildingHealth.CurrentHealth}, MaxHealth = {buildingHealth.maxHealth}");
+        }
 
         UpdateStartingHealthText();
     }

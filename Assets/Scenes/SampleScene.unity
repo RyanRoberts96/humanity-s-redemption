@@ -757,6 +757,7 @@ MonoBehaviour:
   startingHealth: 150
   startingHealthText: {fileID: 0}
   harvester: {fileID: 4214930185177627012, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
+  buildingHealth: {fileID: 276730951}
 --- !u!4 &276730946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6192144425266236187, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
@@ -776,6 +777,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 720107458}
   unitSpawnerButtons: []
+--- !u!114 &276730951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276730936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a44a1ece036400da59796bca841521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  healthSlider: {fileID: 0}
 --- !u!1 &407043210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,7 +1955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6192144425266236187, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.61
+      value: -13.7
       objectReference: {fileID: 0}
     - target: {fileID: 6192144425266236187, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1998,6 +2013,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2656257090795655990, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1828821506}
+    - targetCorrespondingSourceObject: {fileID: 2656257090795655990, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1828821510}
   m_SourcePrefab: {fileID: 100100000, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
 --- !u!1 &739942025
 GameObject:
@@ -4600,11 +4618,26 @@ MonoBehaviour:
   startingHealth: 150
   startingHealthText: {fileID: 0}
   harvester: {fileID: 0}
+  buildingHealth: {fileID: 1828821510}
   unlockableUnits:
   - {fileID: 11400000, guid: 520e6248df9f04f3f8cceb7fd5f9e1ea, type: 2}
   - {fileID: 11400000, guid: bd62376f42b3d481897b2c7556ca7235, type: 2}
   - {fileID: 11400000, guid: 0db000ba481094ef298430e6dbce4f6f, type: 2}
   buttonSpawner: {fileID: 1828821500}
+--- !u!114 &1828821510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828821499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a44a1ece036400da59796bca841521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  healthSlider: {fileID: 0}
 --- !u!1001 &1891357834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4619,7 +4652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5845396989318922463, guid: 4074d0f711b9243e5ad48e4bfc20ec79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.0504675
+      value: -12.45
       objectReference: {fileID: 0}
     - target: {fileID: 5845396989318922463, guid: 4074d0f711b9243e5ad48e4bfc20ec79, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5656,7 +5689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6192144425266236187, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.61
+      value: -13.65
       objectReference: {fileID: 0}
     - target: {fileID: 6192144425266236187, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5710,6 +5743,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2656257090795655990, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
       insertIndex: -1
       addedObject: {fileID: 276730947}
+    - targetCorrespondingSourceObject: {fileID: 2656257090795655990, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 276730951}
   m_SourcePrefab: {fileID: 100100000, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

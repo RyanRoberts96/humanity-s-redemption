@@ -60,4 +60,12 @@ public class Health : MonoBehaviour
             healthSlider.value = CurrentHealth;
         }
     }
+    public void SetHealth(int value)
+    {
+        CurrentHealth = Mathf.Clamp(value, 0, maxHealth);
+        if (healthSlider != null)
+        {
+            healthSlider.value = CurrentHealth;
+        }
+    }
 }
