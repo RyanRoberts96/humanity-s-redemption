@@ -1652,6 +1652,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731e26768b132494b85e6e0d7beebbaa, type: 3}
+--- !u!1 &1440177208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 302236504730485627, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+  m_PrefabInstance: {fileID: 3529895972866067877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1577560383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2014,6 +2019,126 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1994209629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2059532744
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 869380442340313959, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_Name
+      value: HQ_upgrade_btn
+      objectReference: {fileID: 0}
+    - target: {fileID: 2085450966663761997, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: abc260b67681c4c9caa4dbf1289027d9, type: 3}
+    - target: {fileID: 2087985996206997539, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087985996206997539, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087985996206997539, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087985996206997539, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087985996206997539, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087985996206997539, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087985996206997539, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087985996206997539, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087985996206997539, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087985996206997539, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087985996206997539, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087985996206997539, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140611947499386303, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_text
+      value: HeadQuarters - The last bastion of hope, We can not lose this!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543498008327432866, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_Name
+      value: HQ_CurrentLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3936659630220667791, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_Name
+      value: HQ_Panel_close_btn
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094531021956297299, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_Name
+      value: HQ
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757304245918790200, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: abc260b67681c4c9caa4dbf1289027d9, type: 3}
+    - target: {fileID: 5290365198109327401, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_Name
+      value: HQ_Panel_img
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560727353880288806, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: upgradeCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560727353880288806, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: startingHealth
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560727353880288806, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: incomeIncreasePerLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078289824566786836, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_Name
+      value: HQ_UpgradeCost
+      objectReference: {fileID: 0}
+    - target: {fileID: 7594620323622014252, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662493331156157434, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+      propertyPath: m_Name
+      value: HQ_Panel_info
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 4711573243255012384, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+    - {fileID: 8029110944438907724, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+    - {fileID: 3414208594485388402, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
 --- !u!1001 &2117519771251771295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2082,7 +2207,11 @@ PrefabInstance:
     - target: {fileID: 1136471556174229190, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: unitSpawnerButtons.Array.data[1]
       value: 
-      objectReference: {fileID: 69705718699470624, guid: c4b3f7e44e0524b5da415129a2158d47, type: 3}
+      objectReference: {fileID: 1440177208}
+    - target: {fileID: 2751284986773643211, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2868043000663722512, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.7
@@ -2126,7 +2255,7 @@ PrefabInstance:
     - target: {fileID: 5996248825267294316, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: unlockableUnits.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 0179d557842f54b00a50928696bf2e2f, type: 2}
+      objectReference: {fileID: 11400000, guid: bd62376f42b3d481897b2c7556ca7235, type: 2}
     - target: {fileID: 7383331177841149890, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: m_Name
       value: ArmyCamp
@@ -2504,6 +2633,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1949414323}
   - {fileID: 8495083305439506025}
+  - {fileID: 2059532744}
   - {fileID: 3529895972866067877}
   - {fileID: 946791897}
   - {fileID: 782558112}
