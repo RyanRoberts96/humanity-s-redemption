@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MouseSelect : MonoBehaviour
@@ -77,6 +78,9 @@ public class MouseSelect : MonoBehaviour
 
     void HandleDragSelection()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             dragStartPosition = Input.mousePosition;
