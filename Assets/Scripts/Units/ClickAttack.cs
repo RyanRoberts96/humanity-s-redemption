@@ -26,23 +26,30 @@ public class ClickAttack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            Infantry selectedInfantry = mouseSelect.GetSelectedUnit() as Infantry;
+            List<BaseUnit> selectedUnits = mouseSelect.GetSelectedUnits();
 
-            if (selectedInfantry != null)
+            if (selectedUnits != null && selectedUnits.Count > 0)
             {
                 Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity, enemyLayer);
 
-                if (hit.collider != null)
+                foreach (BaseUnit unit in selectedUnits)
                 {
-                    selectedInfantry.CommandAttack(hit.collider.transform);
-                    Debug.Log("Infantry attacking: " + hit.collider.name);
-                }
-                else
-                {
-                    selectedInfantry.CancelAttack();
-                    selectedInfantry.MoveTo(mousePos, true);
-                    Debug.Log("Infantry moving to point and cancelling attack.");
+                    Infantry infantry = unit as Infantry;
+                    if (infantry != null)
+                    {
+                        if (hit.collider != null)
+                        {
+                            infantry.CommandAttack(hit.collider.transform);
+                            Debug.Log(infantry.name + " attacking: " + hit.collider.name);
+                        }
+                        else
+                        {
+                            infantry.CancelAttack();
+                            infantry.MoveTo(mousePos, true);
+                            Debug.Log(infantry.name + " moving to point and cancelling attack.");
+                        }
+                    }
                 }
             }
         }

@@ -136,7 +136,7 @@ MonoBehaviour:
   moveSpeed: 0.5
   attackRange: 0.75
   attackCooldown: 1.2
-  attackDamage: 4
+  attackDamage: 3
   bulletPrefab: {fileID: 5096377505064193054, guid: 85445ee60653c41fd862261fe46565a8, type: 3}
   firePoint: {fileID: 4645721519225071859}
   bulletSpeed: 1.8
