@@ -1922,6 +1922,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArmyCamp
       objectReference: {fileID: 0}
+    - target: {fileID: 2656257090795655990, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
+      propertyPath: m_TagString
+      value: AC
+      objectReference: {fileID: 0}
     - target: {fileID: 5078778052756922284, guid: a06d02f788d024347893b6ec5cb00f85, type: 3}
       propertyPath: panel
       value: 

@@ -78,11 +78,13 @@ public class MouseSelect : MonoBehaviour
 
     void HandleDragSelection()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
-            return;
+        
 
         if (Input.GetMouseButtonDown(0))
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
+
             dragStartPosition = Input.mousePosition;
             isDragging = true;
             selectionBox.SetActive(true);
