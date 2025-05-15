@@ -72,6 +72,7 @@ public class UnitSpawner : MonoBehaviour
             Button unitButton = unitSpawnerButtons[unitIndex].GetComponent<Button>();
             unitButton.onClick.RemoveAllListeners();  // Remove any existing listeners
             unitButton.onClick.AddListener(() => SpawnUnit(unlockedUnit)); // Add a listener to spawn the unit
+            unitButton.onClick.RemoveAllListeners();
         }
         else
         {

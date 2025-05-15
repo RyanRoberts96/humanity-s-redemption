@@ -219,7 +219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4450348580439579823, guid: 6724619768f60481992c13720138d438, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8294362293240501289, guid: 6724619768f60481992c13720138d438, type: 3}
       propertyPath: m_Name
@@ -2624,7 +2624,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &922763030
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3580,7 +3580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d98769526974065a9696fd70a574ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalGold: 500
+  totalGold: 1000
   goldText: {fileID: 568727223}
 --- !u!4 &1230186597
 Transform:
