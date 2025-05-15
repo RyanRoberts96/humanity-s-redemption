@@ -16,4 +16,4 @@ MonoBehaviour:
   cost: 1000
   unitName: The King
   spawnMessageColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  spawnDelay: 180
+  spawnDelay: 300

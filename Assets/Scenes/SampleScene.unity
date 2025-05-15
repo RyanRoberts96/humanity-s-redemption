@@ -1126,6 +1126,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 24273655150231164, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -347.92
+      objectReference: {fileID: 0}
     - target: {fileID: 119082426983960794, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1142,17 +1146,37 @@ PrefabInstance:
       propertyPath: m_text
       value: '125 gold
 
-        Basic'
+        Car'
+      objectReference: {fileID: 0}
+    - target: {fileID: 855941003435795472, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+      propertyPath: m_fontSize
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 855941003435795472, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+      propertyPath: m_margin.x
+      value: -0.8341247
+      objectReference: {fileID: 0}
+    - target: {fileID: 855941003435795472, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+      propertyPath: m_margin.z
+      value: -0.7913468
+      objectReference: {fileID: 0}
+    - target: {fileID: 855941003435795472, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1036385361063835982, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
+    - target: {fileID: 1106107637542555383, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bb3bbe4decdc34554bf3b556e63e5012, type: 3}
     - target: {fileID: 1362795116662320425, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: m_text
       value: '1000 gold
 
-        Master'
+        The King'
       objectReference: {fileID: 0}
     - target: {fileID: 1366114408274899796, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: m_Name
@@ -1162,21 +1186,33 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 11400000, guid: 7d8dcb3db326a4d8da690f7ec734cb24, type: 2}
+    - target: {fileID: 2289554397981194364, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+      propertyPath: buildingName
+      value: Vehicle Depot
+      objectReference: {fileID: 0}
     - target: {fileID: 2751284986773643211, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2782305036340851159, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 1a96ef14db1d546529a7611446dbef96, type: 3}
     - target: {fileID: 2868043000663722512, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868043000663722512, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868043000663722512, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.13
+      value: -11.644
       objectReference: {fileID: 0}
     - target: {fileID: 2868043000663722512, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.264
+      value: 1.556
       objectReference: {fileID: 0}
     - target: {fileID: 2868043000663722512, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1210,9 +1246,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3179180481184738577, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+      propertyPath: buildingName
+      value: Vehicle Depot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869947344710953433, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.665
+      objectReference: {fileID: 0}
+    - target: {fileID: 4328044141431900953, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bb3bbe4decdc34554bf3b556e63e5012, type: 3}
     - target: {fileID: 4370580229970825311, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: m_Name
       value: The King cost txt
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403646252650536020, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+      propertyPath: m_text
+      value: Vehicle Depot - Quicker, better, faster and better. But can you unleash
+        the king?
       objectReference: {fileID: 0}
     - target: {fileID: 5469390279505997275, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -1234,6 +1287,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 11400000, guid: 6f97c57df0f92420bad9b4f32f56e48d, type: 2}
+    - target: {fileID: 6198000315476860687, guid: b088a5d83846842b196acdac51f252bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 111
+      objectReference: {fileID: 0}
     - target: {fileID: 6792022150711438086, guid: b088a5d83846842b196acdac51f252bb, type: 3}
       propertyPath: m_Name
       value: The King
@@ -1250,7 +1307,7 @@ PrefabInstance:
       propertyPath: m_text
       value: '250 gold
 
-        Experienced'
+        Tank'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1417,7 +1474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d98769526974065a9696fd70a574ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalGold: 1000
+  totalGold: 1000000
   goldText: {fileID: 568727223}
 --- !u!4 &1230186597
 Transform:
@@ -2433,7 +2490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4094531021956297299, guid: b551a8e61e92748c9858f8ccb754ad5f, type: 3}
       propertyPath: m_Name
-      value: HomeBase
+      value: HarvesterCamp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
