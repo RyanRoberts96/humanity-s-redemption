@@ -1922,7 +1922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d98769526974065a9696fd70a574ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalGold: 1000000
+  totalGold: 100
   goldText: {fileID: 568727223}
 --- !u!4 &1230186597
 Transform:
@@ -2538,7 +2538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb17b5d0c27746608397c6f8e307c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGold: 50000
+  currentGold: 500
   goldTextUI: {fileID: 2124917128}
 --- !u!4 &1522860639
 Transform:
