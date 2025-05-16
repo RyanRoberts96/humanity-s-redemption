@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1628791708066319204}
   - component: {fileID: 2288951905993571079}
   - component: {fileID: 6008208401160699542}
+  - component: {fileID: -8722769524912385440}
   m_Layer: 10
   m_Name: HQ
   m_TagString: HB
@@ -218,6 +219,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: Harvester Base
   nameTextUI: {fileID: 6702521153940494777}
+--- !u!114 &-8722769524912385440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352465234382246701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e777a8b7ab4d421483c6d3f2d88ad10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1780554223565804176
 GameObject:
   m_ObjectHideFlags: 0
