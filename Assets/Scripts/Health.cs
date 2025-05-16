@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
             healthSlider.maxValue = maxHealth;
             healthSlider.value = CurrentHealth;
         }
+
     }
 
     public void TakeDamage(int amount)

@@ -12,25 +12,48 @@ public class AIHarvesterController : MonoBehaviour
     public TextMeshProUGUI goldTextUI;
 
     private int currentCarry = 0;
-    private int totalGoldDeposited = 100;
-
     private GameObject targetResource;
     private GoldResourceNode targetResourceNode;
-    private GameObject baseBuilding;
+    private AIHarvesterBuilding homeBuilding;
 
-    private enum State { GoingToResource, Harvesting, ReturningToBase }
+    private enum State { GoingToResource, Harvesting, ReturningToBase, Idle }
     private State currentState;
+
+    [HideInInspector]
+    public int harvesterID;
 
     private void Start()
     {
-        baseBuilding = GameObject.FindGameObjectWithTag("AIHC");
+        harvesterID = GetInstanceID();
+
+        GameObject baseBuilding = GameObject.FindGameObjectWithTag("AIHC");
+        if (baseBuilding != null)
+        {
+            homeBuilding = baseBuilding.GetComponent<AIHarvesterBuilding>();
+            ResourceManager.Instance.RegisterHarvester(this);
+            currentState = State.Idle;
+            goldTextUI = homeBuilding.goldTextUI;
+        }
         FindNewResource();
         UpdateGoldUI();
     }
 
+    void OnDestroy()
+    {
+        if (ResourceManager.Instance != null)
+        {
+            ResourceManager.Instance.UnregisterHarvester(this);
+        }
+
+        if (targetResourceNode != null)
+        {
+            ResourceManager.Instance.ReleaseResourceNode(targetResourceNode, this);
+        }
+    }
+
     void Update()
     {
-        if (targetResource == null && currentState != State.ReturningToBase)
+        if ((targetResource == null || targetResourceNode == null) && currentState != State.ReturningToBase)
         {
             FindNewResource();
             return;
@@ -47,17 +70,21 @@ public class AIHarvesterController : MonoBehaviour
                 break;
 
             case State.ReturningToBase:
-                if (baseBuilding == null)
+                if (homeBuilding == null)
                 {
                     Debug.Log("Base not foiund!");
                     return;
                 }
-                MoveTowards(baseBuilding.transform.position);
-                if (Vector2.Distance(transform.position, baseBuilding.transform.position) < 0.3f)
+                MoveTowards(homeBuilding.transform.position);
+                if (Vector2.Distance(transform.position, homeBuilding.transform.position) < 0.3f)
                 {
                     DepositGold();
                     FindNewResource();
                 }
+                break;
+
+            case State.Idle:
+                FindNewResource();
                 break;
         }
     }
@@ -69,36 +96,63 @@ public class AIHarvesterController : MonoBehaviour
 
     void FindNewResource()
     {
-        int resourceLayer = LayerMask.NameToLayer("Resource");
-        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
-
-        float closestDistance = Mathf.Infinity;
-        GameObject closestResource = null;
-
-        foreach(var obj in allObjects)
+        if (targetResource != null)
         {
-            GoldResourceNode node = obj.GetComponent<GoldResourceNode>();
-            if (node == null || node.resourceAmount <= 0) continue;
-
-            float dist = Vector2.Distance(transform.position, obj.transform.position);
-            if (dist < closestDistance)
-            {
-                closestDistance = dist;
-                closestResource = obj;
-            }
+            ResourceManager.Instance.ReleaseResourceNode(targetResourceNode, this);
+            targetResourceNode = null;
+            targetResource = null;
         }
-        if (closestResource != null)
+
+        GoldResourceNode node = ResourceManager.Instance.GetAvailableResourceNode(this);
+
+        if (node != null)
         {
-            targetResource = closestResource;
-            targetResourceNode = targetResource.GetComponent<GoldResourceNode>();
+            targetResource = node.gameObject;
+            targetResourceNode = node;
             currentState = State.GoingToResource;
+            Debug.Log($"Harvester {harvesterID} assigned to resource at {targetResource.transform.position}");
         }
         else
         {
-            Debug.Log("No resource nodes found!");
+            Debug.Log($"Harvester {harvesterID} couldn't find an available resourcenode. Going idle.");
+            currentState = State.Idle;
+            StartCoroutine(RetryFindResource());
         }
+        //    int resourceLayer = LayerMask.NameToLayer("Resource");
+        //    GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+
+        //    float closestDistance = Mathf.Infinity;
+        //    GameObject closestResource = null;
+
+        //    foreach(var obj in allObjects)
+        //    {
+        //        GoldResourceNode node = obj.GetComponent<GoldResourceNode>();
+        //        if (node == null || node.resourceAmount <= 0) continue;
+
+        //        float dist = Vector2.Distance(transform.position, obj.transform.position);
+        //        if (dist < closestDistance)
+        //        {
+        //            closestDistance = dist;
+        //            closestResource = obj;
+        //        }
+        //    }
+        //    if (closestResource != null)
+        //    {
+        //        targetResource = closestResource;
+        //        targetResourceNode = targetResource.GetComponent<GoldResourceNode>();
+        //        currentState = State.GoingToResource;
+        //    }
+        //    else
+        //    {
+        //        Debug.Log("No resource nodes found!");
+        //    }
     }
 
+    IEnumerator RetryFindResource()
+    {
+        yield return new WaitForSeconds(2f);
+        FindNewResource();
+    }
     IEnumerator HarvestCoroutine()
     {
         while (currentState == State.Harvesting)
@@ -137,8 +191,16 @@ public class AIHarvesterController : MonoBehaviour
 
     void DepositGold()
     {
-        totalGoldDeposited += currentCarry;
-        Debug.Log($" Deposited {currentCarry} gold. Total gold deposited: {totalGoldDeposited}");
+        if (homeBuilding != null)
+        {
+            homeBuilding.DepositGold(currentCarry);
+            Debug.Log($"Deposited {currentCarry} gold at building");
+        }
+        else
+        {
+            Debug.LogWarning("No home building found to deposit gold!");
+        }
+
         currentCarry = 0;
         currentState = State.GoingToResource;
         UpdateGoldUI();
@@ -146,9 +208,9 @@ public class AIHarvesterController : MonoBehaviour
 
     void UpdateGoldUI()
     {
-        if (goldTextUI != null)
+        if (goldTextUI != null && homeBuilding != null)
         {
-            goldTextUI.text = $"AI Gold: {totalGoldDeposited}";
+            goldTextUI.text = $"AI Gold: {homeBuilding.currentGold}";
 
         }
     }
