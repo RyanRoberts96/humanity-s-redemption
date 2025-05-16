@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AIHarvesterController : MonoBehaviour
 {
@@ -8,9 +9,10 @@ public class AIHarvesterController : MonoBehaviour
     public int harvestAmount = 1;
     public float harvestInterval = 1f;
     public int carryCapacity = 5;
+    public TextMeshProUGUI goldTextUI;
 
     private int currentCarry = 0;
-    private int totalGoldDeposited = 0;
+    private int totalGoldDeposited = 100;
 
     private GameObject targetResource;
     private GoldResourceNode targetResourceNode;
@@ -23,6 +25,7 @@ public class AIHarvesterController : MonoBehaviour
     {
         baseBuilding = GameObject.FindGameObjectWithTag("AIHC");
         FindNewResource();
+        UpdateGoldUI();
     }
 
     void Update()
@@ -138,5 +141,15 @@ public class AIHarvesterController : MonoBehaviour
         Debug.Log($" Deposited {currentCarry} gold. Total gold deposited: {totalGoldDeposited}");
         currentCarry = 0;
         currentState = State.GoingToResource;
+        UpdateGoldUI();
+    }
+
+    void UpdateGoldUI()
+    {
+        if (goldTextUI != null)
+        {
+            goldTextUI.text = $"AI Gold: {totalGoldDeposited}";
+
+        }
     }
 }
