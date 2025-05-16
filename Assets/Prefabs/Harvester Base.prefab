@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 395892513430698756}
   - component: {fileID: 9036915766541237017}
   - component: {fileID: 7433464247992099427}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building Name.txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 1885812346937091719}
   - component: {fileID: 4508827639895963433}
   - component: {fileID: 4727511464158521099}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HB_upgrade_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 154078498226761272}
   - component: {fileID: 7231381165545815945}
   - component: {fileID: 6798189266392323523}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 1144238514049123310}
   - component: {fileID: 5382353961331207768}
   - component: {fileID: 3945489010341606172}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 75912986773959066}
   - component: {fileID: 3523595974467428612}
   - component: {fileID: 6508321241601791390}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HarvesterUpgrade cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +665,7 @@ GameObject:
   - component: {fileID: 4650398677128788503}
   - component: {fileID: 7423072530839226203}
   - component: {fileID: 3630796691442061187}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HB_CurrentLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -800,7 +800,7 @@ GameObject:
   - component: {fileID: 7316077470776050334}
   - component: {fileID: 427529060867048265}
   - component: {fileID: 3932655135609053692}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HB_Panel_close_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 2038394992089173752}
   - component: {fileID: 4596863037569214306}
   - component: {fileID: 98826545955523109}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Harvester Base
   m_TagString: HB
   m_Icon: {fileID: 0}
@@ -1093,7 +1093,7 @@ MonoBehaviour:
   panel: {fileID: 7594620323622014252}
   levelText: {fileID: 3630796691442061187}
   costText: {fileID: 1268065671619334721}
-  startingHealth: 150
+  startingHealth: 400
   startingHealthText: {fileID: 0}
   harvester: {fileID: 4214930185177627012, guid: aa178029c0ae9448bb8a736ca4faff68, type: 3}
   buildingHealth: {fileID: 4596863037569214306}
@@ -1123,7 +1123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a44a1ece036400da59796bca841521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 400
   healthSlider: {fileID: 0}
 --- !u!114 &98826545955523109
 MonoBehaviour:
@@ -1150,7 +1150,7 @@ GameObject:
   - component: {fileID: 1216135789151666470}
   - component: {fileID: 5221603180414558636}
   - component: {fileID: 8247287814770008203}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1282,7 +1282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8735291571562183065}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Harvester_Spawnspont
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1316,7 +1316,7 @@ GameObject:
   - component: {fileID: 2718664883473865688}
   - component: {fileID: 2085450966663761997}
   - component: {fileID: 1201757273148776713}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HB_Panel_img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1407,7 +1407,7 @@ GameObject:
   - component: {fileID: 8780726898921809751}
   - component: {fileID: 8007356575094021150}
   - component: {fileID: 8855018403567010118}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Harvester_Base_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1508,7 +1508,7 @@ GameObject:
   - component: {fileID: 8766906360805223171}
   - component: {fileID: 7922053101705463779}
   - component: {fileID: 1268065671619334721}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HB_UpgradeCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1642,7 +1642,7 @@ GameObject:
   - component: {fileID: 2392023383923276617}
   - component: {fileID: 6384934442902647966}
   - component: {fileID: 4015185574967565644}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HB_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1726,7 +1726,7 @@ GameObject:
   - component: {fileID: 1444009120202610298}
   - component: {fileID: 1005057806027735322}
   - component: {fileID: 2773765301781453931}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Harvester_Spawn_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1858,7 +1858,7 @@ GameObject:
   - component: {fileID: 821917627880927223}
   - component: {fileID: 1644552335851737489}
   - component: {fileID: 3140611947499386303}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HB_Panel_info
   m_TagString: Untagged
   m_Icon: {fileID: 0}

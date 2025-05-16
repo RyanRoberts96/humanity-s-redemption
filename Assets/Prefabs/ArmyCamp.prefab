@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7653827270975511423}
   - component: {fileID: 119082426983960794}
   - component: {fileID: 5469390279505997275}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Experienced Infantry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3869947344710953433}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: infantry_Spawnspont
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 9064877051260873088}
   - component: {fileID: 8584754663254175438}
   - component: {fileID: 4701738038437674715}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ArmyCamp_Base_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 5756966454108753734}
   - component: {fileID: 2782305036340851159}
   - component: {fileID: 1927112814171439818}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Basic Infantry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 665078790207926891}
   - component: {fileID: 8430520720391371317}
   - component: {fileID: 8482315621495695338}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: experienced infantry cost txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 6198000315476860687}
   - component: {fileID: 6056052841153721287}
   - component: {fileID: 5403646252650536020}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: AC_Panel_info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -681,7 +681,7 @@ GameObject:
   - component: {fileID: 6789228358511617175}
   - component: {fileID: 5556519865716436993}
   - component: {fileID: 5815069863929914086}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: AC_Panel_close_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 232336178271573446}
   - component: {fileID: 3539310890846829400}
   - component: {fileID: 436210666011765032}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: AC_CurrentLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -946,7 +946,7 @@ GameObject:
   - component: {fileID: 24273655150231164}
   - component: {fileID: 1849424515048764012}
   - component: {fileID: 855941003435795472}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building Name.txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1080,7 +1080,7 @@ GameObject:
   - component: {fileID: 7380555686611044475}
   - component: {fileID: 6608091531385538758}
   - component: {fileID: 2117164226486046050}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: AC_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1164,7 +1164,7 @@ GameObject:
   - component: {fileID: 3519070231441336313}
   - component: {fileID: 6969992304572268373}
   - component: {fileID: 582831521168135546}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Infantry spawn cost txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1302,7 +1302,7 @@ GameObject:
   - component: {fileID: 2501800709390629636}
   - component: {fileID: 2094443511208649600}
   - component: {fileID: 3179180481184738577}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1417,7 +1417,7 @@ GameObject:
   - component: {fileID: 3203924830837876603}
   - component: {fileID: 1358158151274405064}
   - component: {fileID: 1362795116662320425}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: experienced infantry cost txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1554,7 +1554,7 @@ GameObject:
   - component: {fileID: 2714515558768467820}
   - component: {fileID: 8444742194699498472}
   - component: {fileID: 6065685088173019301}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Master Infantry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1686,7 +1686,7 @@ GameObject:
   - component: {fileID: 158007727165383991}
   - component: {fileID: 1229203721151685294}
   - component: {fileID: 1996646318152728931}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: AC_UpgradeCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1825,7 +1825,7 @@ GameObject:
   - component: {fileID: 5996248825267294316}
   - component: {fileID: 6771718654555853019}
   - component: {fileID: 2289554397981194364}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmyCamp
   m_TagString: AC
   m_Icon: {fileID: 0}
@@ -1999,7 +1999,7 @@ MonoBehaviour:
   panel: {fileID: 2751284986773643211}
   levelText: {fileID: 436210666011765032}
   costText: {fileID: 1996646318152728931}
-  startingHealth: 150
+  startingHealth: 400
   startingHealthText: {fileID: 0}
   harvester: {fileID: 0}
   buildingHealth: {fileID: 6771718654555853019}
@@ -2020,7 +2020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a44a1ece036400da59796bca841521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 400
   healthSlider: {fileID: 0}
 --- !u!114 &2289554397981194364
 MonoBehaviour:
@@ -2048,7 +2048,7 @@ GameObject:
   - component: {fileID: 6843279294964097616}
   - component: {fileID: 1483949523439474986}
   - component: {fileID: 3345369034943453334}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: AC_upgrade_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2181,7 +2181,7 @@ GameObject:
   - component: {fileID: 5245266228154558449}
   - component: {fileID: 4328044141431900953}
   - component: {fileID: 3024664284379844613}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: AC_Panel_img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2271,7 +2271,7 @@ GameObject:
   - component: {fileID: 5367027886364218204}
   - component: {fileID: 8605916694361362103}
   - component: {fileID: 4068369982472926352}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
