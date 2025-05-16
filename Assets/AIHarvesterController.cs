@@ -9,8 +9,7 @@ public class AIHarvesterController : MonoBehaviour
     public int harvestAmount = 1;
     public float harvestInterval = 1f;
     public int carryCapacity = 5;
-    public TextMeshProUGUI goldTextUI;
-
+    
     private int currentCarry = 0;
     private GameObject targetResource;
     private GoldResourceNode targetResourceNode;
@@ -32,10 +31,9 @@ public class AIHarvesterController : MonoBehaviour
             homeBuilding = baseBuilding.GetComponent<AIHarvesterBuilding>();
             ResourceManager.Instance.RegisterHarvester(this);
             currentState = State.Idle;
-            goldTextUI = homeBuilding.goldTextUI;
         }
         FindNewResource();
-        UpdateGoldUI();
+        AIEconomyManager.Instance.UpdateGoldDisplay();
     }
 
     void OnDestroy()
@@ -72,7 +70,7 @@ public class AIHarvesterController : MonoBehaviour
             case State.ReturningToBase:
                 if (homeBuilding == null)
                 {
-                    Debug.Log("Base not foiund!");
+                    Debug.Log("Base not found!");
                     return;
                 }
                 MoveTowards(homeBuilding.transform.position);
@@ -118,34 +116,6 @@ public class AIHarvesterController : MonoBehaviour
             currentState = State.Idle;
             StartCoroutine(RetryFindResource());
         }
-        //    int resourceLayer = LayerMask.NameToLayer("Resource");
-        //    GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
-
-        //    float closestDistance = Mathf.Infinity;
-        //    GameObject closestResource = null;
-
-        //    foreach(var obj in allObjects)
-        //    {
-        //        GoldResourceNode node = obj.GetComponent<GoldResourceNode>();
-        //        if (node == null || node.resourceAmount <= 0) continue;
-
-        //        float dist = Vector2.Distance(transform.position, obj.transform.position);
-        //        if (dist < closestDistance)
-        //        {
-        //            closestDistance = dist;
-        //            closestResource = obj;
-        //        }
-        //    }
-        //    if (closestResource != null)
-        //    {
-        //        targetResource = closestResource;
-        //        targetResourceNode = targetResource.GetComponent<GoldResourceNode>();
-        //        currentState = State.GoingToResource;
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("No resource nodes found!");
-        //    }
     }
 
     IEnumerator RetryFindResource()
@@ -193,7 +163,7 @@ public class AIHarvesterController : MonoBehaviour
     {
         if (homeBuilding != null)
         {
-            homeBuilding.DepositGold(currentCarry);
+            AIEconomyManager.Instance.AddGold(currentCarry);
             Debug.Log($"Deposited {currentCarry} gold at building");
         }
         else
@@ -203,15 +173,6 @@ public class AIHarvesterController : MonoBehaviour
 
         currentCarry = 0;
         currentState = State.GoingToResource;
-        UpdateGoldUI();
-    }
-
-    void UpdateGoldUI()
-    {
-        if (goldTextUI != null && homeBuilding != null)
-        {
-            goldTextUI.text = $"AI Gold: {homeBuilding.currentGold}";
-
-        }
+        AIEconomyManager.Instance.UpdateGoldDisplay();
     }
 }

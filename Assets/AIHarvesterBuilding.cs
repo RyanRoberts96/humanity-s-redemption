@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class AIHarvesterBuilding : MonoBehaviour
 {
-    [Header("Resources")]
-    public int currentGold = 100;
 
     [Header("Harvester Units")]
     public GameObject harvesterPrefab;
@@ -31,15 +29,12 @@ public class AIHarvesterBuilding : MonoBehaviour
 
     private void UpdateGoldDisplay()
     {
-        if (goldTextUI != null)
-        {
-            goldTextUI.text = $"AI gold: {currentGold}";
-        }
+        AIEconomyManager.Instance.UpdateGoldDisplay();
     }
 
     public void DepositGold(int amount)
     {
-        AddGold(amount);
+        AIEconomyManager.Instance.AddGold(amount);
     }
 
     private int[] maxHarvestersPerLevel = { 3, 4, 5 };
@@ -86,23 +81,23 @@ public class AIHarvesterBuilding : MonoBehaviour
         if (currentLevel >= maxLevel)
             return false;
 
-        return currentGold >= upgradeCost && activeHarvesters.Count >= maxHarvesters;
+        return AIEconomyManager.Instance.currentGold >= upgradeCost && activeHarvesters.Count >= maxHarvesters;
+
     }
 
     private bool ShouldBuildHarvester()
     {
-        return currentGold >= harvesterCost && activeHarvesters.Count < maxHarvesters;
+        return AIEconomyManager.Instance.currentGold >= harvesterCost && activeHarvesters.Count < maxHarvesters;
+
     }
 
     public void BuildHarvester()
     {
-        if (currentGold < harvesterCost)
-            return;
-
         if (activeHarvesters.Count >= maxHarvesters)
             return;
 
-        currentGold -= harvesterCost;
+        if (!AIEconomyManager.Instance.SpendGold(harvesterCost)) return;
+
         UpdateGoldDisplay();
 
         Vector3 spawnPosition = spawnPoint != null ? spawnPoint.position : transform.position + new Vector3(1f, 0f, 0f);
@@ -112,7 +107,7 @@ public class AIHarvesterBuilding : MonoBehaviour
         if (harvesterController != null)
         {
             LinkHarvesterToBuilding(harvesterController);
-            harvesterController.goldTextUI = goldTextUI;
+           
 
             Health healthComponent = harvester.GetComponent<Health>();
             if (healthComponent != null)
@@ -131,10 +126,11 @@ public class AIHarvesterBuilding : MonoBehaviour
 
     public void UpgradeBuilding()
     {
-        if (currentLevel >= maxLevel || currentGold < upgradeCost)
+        if (currentLevel >= maxLevel)
             return;
 
-        currentGold -= upgradeCost;
+        if (!AIEconomyManager.Instance.SpendGold(upgradeCost)) return;
+
         currentLevel++;
 
         upgradeCost = upgradeCost * 2;
@@ -152,6 +148,8 @@ public class AIHarvesterBuilding : MonoBehaviour
 
         if (currentHealth > maxHealth)
             currentHealth = maxHealth;
+
+        transform.localScale *= 1.2f;
 
         StartCoroutine(UpgradeVisualEffects());
 
@@ -176,12 +174,6 @@ public class AIHarvesterBuilding : MonoBehaviour
     private void CleanupHarvesterList()
     {
         activeHarvesters.RemoveAll(harvester => harvester == null);
-    }
-
-    private void AddGold(int amount)
-    {
-        currentGold += amount;
-        UpdateGoldDisplay();
     }
 
     public void TakeDamage(int amount)
