@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6019002881701468078
+--- !u!1 &6348432843528541929
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1422670737302147688}
-  - component: {fileID: 1445392042116466287}
-  - component: {fileID: 2225872571471224169}
-  - component: {fileID: 7904777340620828411}
+  - component: {fileID: 3170608716972081636}
+  - component: {fileID: 5882794663547236368}
+  - component: {fileID: 5907336012455614196}
+  - component: {fileID: 4734368378592455074}
+  - component: {fileID: 7511012647532117104}
   m_Layer: 8
   m_Name: Enemy Harvester base
-  m_TagString: Untagged
+  m_TagString: AIHC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1422670737302147688
+--- !u!4 &3170608716972081636
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6019002881701468078}
+  m_GameObject: {fileID: 6348432843528541929}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.340811, y: 0.3319655, z: 0}
+  m_LocalPosition: {x: -11.340811, y: -2.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4752691132760013461}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1445392042116466287
+--- !u!212 &5882794663547236368
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6019002881701468078}
+  m_GameObject: {fileID: 6348432843528541929}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -86,13 +88,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2225872571471224169
+--- !u!61 &5907336012455614196
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6019002881701468078}
+  m_GameObject: {fileID: 6348432843528541929}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -115,7 +117,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.011262417, y: 0}
@@ -131,13 +133,13 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4973402, y: 0.64}
   m_EdgeRadius: 0
---- !u!114 &7904777340620828411
+--- !u!114 &4734368378592455074
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6019002881701468078}
+  m_GameObject: {fileID: 6348432843528541929}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26a44a1ece036400da59796bca841521, type: 3}
@@ -145,3 +147,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   healthSlider: {fileID: 0}
+--- !u!114 &7511012647532117104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6348432843528541929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a7d0d7ea78c42e291e2b1b02aba26e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGold: 5000
+  harvesterPrefab: {fileID: 7982496069469088896, guid: eb5b2fcb26be9420fb0e88b592cdf59f, type: 3}
+  harvesterCost: 100
+  maxHarvesters: 3
+  spawnPoint: {fileID: 4752691132760013461}
+  goldTextUI: {fileID: 0}
+  currentLevel: 1
+  maxLevel: 5
+  upgradeCost: 150
+  maxHealth: 350
+  currentHealth: 200
+--- !u!1 &7504443995734595026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4752691132760013461}
+  m_Layer: 8
+  m_Name: Spawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4752691132760013461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7504443995734595026}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.46, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3170608716972081636}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
