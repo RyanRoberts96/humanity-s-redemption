@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda48e4fb7e6b4f1e97e8926a907ca4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceAmount: 500
+  resourceAmount: 250
   resourceText: {fileID: 2435923135487952189}
 --- !u!1 &9069561042297709661
 GameObject:
